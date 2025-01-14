@@ -121,7 +121,6 @@ function markCell(event) {
             checkWin(coord);
         } else match[coord] = false;
     }
-    console.log(match);
 }
 
 function removeEl() {
