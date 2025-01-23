@@ -23,8 +23,6 @@ youPicked.textContent = "YOU PICKED";
 let housePicked = document.createElement("p");
 housePicked.textContent = "THE HOUSE PICKED";
 
-let winner = document.createElement("div"); // WINNER CIRCLE
-
 rules.addEventListener("mousedown", function() {
     let modal = document.querySelector(".modal");
     modal.style.display = "block";
@@ -75,14 +73,20 @@ function endGame(user, comp, rnd) {
 function checkWin(userDiv, compDiv, rnd) {
     let user = userDiv.className;
     let comp = compDiv.className;
-    if (user === comp) 
+    
+    if (user === comp) {
         gameText.textContent = "DRAW";
+        userDiv.setAttribute("class", user + " winner");
+        compDiv.setAttribute("class", comp + " winner");
+    }
     else if ((user === "rock" && comp === "scissors") ||
             (user === "scissors" && comp === "paper") ||
             (user === "paper" && comp === "rock")) {
+            userDiv.setAttribute("class", user + " winner");
             gameText.textContent = "YOU WIN";
             ++wins;
     } else {
+        compDiv.setAttribute("class", comp + " winner");
         wins = wins == 0 ? 0 : --wins;
         gameText.textContent = "YOU LOSE";
     }

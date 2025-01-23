@@ -1,8 +1,3 @@
-/* html {
-    
-    
-} */
-
 body {
     background: linear-gradient(hsl(214, 47%, 23%), hsl(237, 49%, 15%));
     background-repeat: no-repeat;
@@ -241,6 +236,26 @@ img[alt="close"] {
     color: white; 
 }
 
+.winner::before,
+.winner::after {
+    content: '';
+    position: absolute;
+    border: 30px solid rgba(255, 255, 255, 0.055); 
+    border-radius: 50%; 
+    z-index: 1; 
+}
+
+.winner::before {
+    width: 190px; 
+    height: 190px;
+}
+
+.winner::after {
+    width: 250px;
+    height: 250px;
+    border: 35px solid rgba(255, 255, 255, 0.034);
+}
+
 @media screen and (max-width: 650px) {
     body {
         width: 350px;
@@ -300,5 +315,15 @@ img[alt="close"] {
 
     .endGame p {
         text-align: center;
+    }
+
+    .winner::before {
+        width: 120px; 
+        height: 120px;
+    }
+    
+    .winner::after {
+        width: 180px;
+        height: 180px;
     }
 }
