@@ -1,10 +1,12 @@
-html {
-    background: linear-gradient(hsl(214, 47%, 23%), hsl(237, 49%, 15%));
-    background-repeat: no-repeat;
-    height: 100%;
-}
+/* html {
+    
+    
+} */
 
 body {
+    background: linear-gradient(hsl(214, 47%, 23%), hsl(237, 49%, 15%));
+    background-repeat: no-repeat;
+    height: 100vh;
     font-family: "Barlow Semi Condensed", serif;
     font-weight: 600;
     font-style: normal;
@@ -242,7 +244,6 @@ img[alt="close"] {
 @media screen and (max-width: 650px) {
     body {
         width: 350px;
-        height: auto;
         display: flex;
         flex-direction: column;
         justify-content: center;
