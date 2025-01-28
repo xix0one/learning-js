@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"> 
+  <link rel="icon" type="image/png" sizes="32x32" href="./assets/images/favicon-32x32.png">
+  <link rel="stylesheet" type="text/css" href="main.css">
+  
+  <title>Newsletter sign-up form with success message</title>
+
+  <style>
+    footer { font-size: 11px; text-align: center; }
+    footer a { color: hsl(228, 45%, 44%); }
+  </style>
+</head>
+<body>
+
+  <main>
+    <form>
+      <h1>
+        Stay updated!
+      </h1>
+
+      <label>Join 60,000+ product managers receiving monthly updates on:</label>
+
+      <ul>
+        <li>Product discovery and building what matters</li>
+        <li>Measuring to ensure updates are a success</li>
+        <li>And much more!</li>
+      </ul>
+
+      <label class="emal">
+        <span>Email address</span>
+        <span class="emailReq">Valid email required</span>
+      </label>
+
+      <input type="text" value="email@company.com">
+
+      <button type="button" id="subscribe">Subscribe to monthly newsletter</button>
+    </form>
+
+    <div class="imageBackground">
+    </div>
+
+  </main>
+
+  <div class="modal">
+    <div class="modalContent">
+      <img src="assets/images/icon-success.svg" alt="icon-success">
+      <h2>Thanks for subscribing!</h2>
+
+      <p>A confirmation email has been sent to <span id="emailPerson">ash@loremcompany.com.</span>
+        Please open it and click the button inside to confirm your subscription.</p>
+
+      <button id="dismiss">Dismiss message</button>
+    </div>
+  </div>
+  
+  <footer>
+    Challenge by <a href="https://www.frontendmentor.io?ref=challenge" target="_blank">Frontend Mentor</a>. 
+    Coded by <a href="https://github.com/xix0one">xix0one</a>.
+  </footer>
+
+  <script src="main.js"></script>
+
+</body>
+</html>
