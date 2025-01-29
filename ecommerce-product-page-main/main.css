@@ -1,0 +1,132 @@
+body {
+  background-color: hsl(0, 0%, 100%);
+  font-family: "Kumbh Sans", serif;
+  font-weight: 400;
+  font-size: 16px;
+  color: hsl(219, 9%, 45%);
+}
+body header {
+  border-bottom: 2px solid hsl(219, 9%, 45%);
+}
+body header img[alt=image-avatar] {
+  cursor: pointer;
+  border: 2px solid hsl(0, 0%, 100%);
+  width: 2.5rem;
+  border-radius: 50%;
+}
+body header img[alt=image-avatar]:hover {
+  border-color: hsl(26, 100%, 55%);
+}
+body header nav a {
+  color: hsl(219, 9%, 45%) !important;
+  border: 4px solid hsl(0, 0%, 100%) !important;
+  margin-bottom: -0.5rem;
+}
+body header nav a:hover {
+  border-bottom-color: hsl(26, 100%, 55%) !important;
+  color: hsl(220, 13%, 13%) !important;
+}
+body main img[alt=image-product] {
+  cursor: pointer;
+  border: 2px solid hsl(0, 0%, 100%);
+  width: 25rem;
+  border-radius: 1rem;
+}
+body main img[alt=product-thumbnail] {
+  margin-top: 1rem;
+  cursor: pointer;
+  border: 2px solid hsl(0, 0%, 100%);
+  width: 5rem;
+  border-radius: 1rem;
+}
+body main img[alt=product-thumbnail]:hover {
+  opacity: 80%;
+}
+body main .chooseImage {
+  border-color: hsl(26, 100%, 55%) !important;
+  opacity: 80%;
+}
+body main .info h1 {
+  font-family: "Kumbh Sans", serif;
+  font-weight: 700;
+  font-size: 38px;
+  color: hsl(220, 13%, 13%);
+  margin: 1rem auto 2rem auto;
+}
+body main .info h2 {
+  font-family: "Kumbh Sans", serif;
+  font-weight: 700;
+  font-size: 16px;
+  color: hsl(219, 9%, 45%);
+}
+body main .info .newPrice {
+  font-family: "Kumbh Sans", serif;
+  font-weight: 700;
+  font-size: 30px;
+  color: hsl(220, 13%, 13%);
+}
+body main .info .newPrice .discount {
+  padding: 0 0.5rem 0 0.5rem;
+  margin-left: 0.5rem;
+  background-color: black;
+  font-family: "Kumbh Sans", serif;
+  font-weight: 700;
+  font-size: 20px;
+  color: hsl(0, 0%, 100%);
+  border-radius: 0.3rem;
+}
+body main .info .oldPrice {
+  font-family: "Kumbh Sans", serif;
+  font-weight: 700;
+  font-size: 16px;
+  color: hsl(219, 9%, 45%);
+}
+body main .info .counter {
+  font-family: "Kumbh Sans", serif;
+  font-weight: 700;
+  font-size: 16px;
+  color: hsl(220, 13%, 13%);
+  border: none;
+  width: 8rem;
+  height: 2.5rem;
+  border-radius: 0.5rem;
+  cursor: auto;
+  background-color: hsl(223, 64%, 98%);
+}
+body main .info .counter img {
+  width: 0.7rem;
+  cursor: pointer;
+}
+body main .info .counter img:hover {
+  opacity: 80%;
+}
+body main .info .buy {
+  font-family: "Kumbh Sans", serif;
+  font-weight: 700;
+  font-size: 16px;
+  color: hsl(220, 13%, 13%);
+  border: none;
+  width: 12rem;
+  height: 2.5rem;
+  border-radius: 0.5rem;
+  background-color: hsl(26, 100%, 55%);
+}
+body main .info .buy img {
+  width: 1rem;
+  margin-right: 1rem;
+}
+body main .info .buy:hover {
+  opacity: 80%;
+}
+body footer {
+  font-family: "Kumbh Sans", serif;
+  font-weight: 400;
+  font-size: 11px;
+  color: hsl(220, 13%, 13%);
+  text-align: center;
+}
+body footer a {
+  color: hsl(228, 45%, 44%);
+}
+
+/*# sourceMappingURL=main.css.map */

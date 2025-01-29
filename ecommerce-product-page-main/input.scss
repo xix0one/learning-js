@@ -1,0 +1,154 @@
+$colors: (
+    background: hsl(0, 0%, 100%),
+    text: hsl(219, 9%, 45%),
+    textLink: hsl(220, 13%, 13%),
+    avatar: hsl(26, 100%, 55%),
+    white: hsl(0, 0%, 100%),
+    footerLink: hsl(228, 45%, 44%),
+    countButton: hsl(223, 64%, 98%)
+);
+
+$avatarWidth: 2.5rem;
+
+$mainImage: 25rem;
+$imageMini: 5rem;
+$borderRadiusImage: 1rem;
+$opasity: 80%;
+
+@mixin font($weight: 400, $size: 16px, $color: map-get($colors, text)) {
+    font-family: "Kumbh Sans", serif;
+    font-weight: $weight;
+    font-size: $size;
+    color: $color;
+}
+
+@mixin image($width, $radius) {
+    cursor: pointer;
+    border: 2px solid map-get($colors, white);
+    width: $width;
+    border-radius: $radius;
+}
+
+@mixin button($width, $height, $radius) {
+    @include font(700, 16px, map-get($colors, textLink));
+    border: none;
+    width: $width;
+    height: $height;
+    border-radius: $radius;
+}
+
+body {
+    background-color: map-get($colors, background);
+    @include font();
+
+    header {
+        border-bottom: 2px solid map-get($colors, text);
+
+        img[alt="image-avatar"] {
+            @include image($avatarWidth, 50%);
+
+            &:hover {
+                border-color: map-get($colors, avatar);
+            }
+        }
+
+        nav {
+            a {
+                color: map-get($colors, text) !important;
+                border: 4px solid map-get($colors, white) !important;
+                margin-bottom: -.5rem;
+
+                &:hover {
+                    border-bottom-color: map-get($colors, avatar) !important;
+                    color: map-get($colors, textLink) !important;
+                }
+            }
+        }
+    }
+
+    main {
+        img[alt="image-product"] {
+            @include image($mainImage, $borderRadiusImage);
+        }
+
+        img[alt="product-thumbnail"] {
+            margin-top: 1rem;
+            @include image($imageMini, $borderRadiusImage); 
+
+            &:hover {
+                opacity: $opasity;
+            }
+        }
+
+        .chooseImage {
+            border-color: map-get($colors, avatar) !important;
+            opacity: $opasity;
+        }
+
+        .info {
+
+            h1 {
+                @include font(700, 38px, map-get($colors, textLink));
+                margin: 1rem auto 2rem auto; 
+            }
+
+            h2 {
+                @include font(700); 
+            }
+
+            .newPrice {
+                @include font(700, 30px, map-get($colors, textLink));
+
+                .discount {
+                    padding: 0 .5rem 0 .5rem;
+                    margin-left: .5rem;
+                    background-color: black;
+                    @include font(700, 20px, map-get($colors, white));
+                    border-radius: .3rem;    
+                } 
+            }
+
+            .oldPrice {
+                @include font(700);
+            }
+
+            .counter {
+                @include button(8rem, 2.5rem, .5rem);
+                cursor: auto;
+                background-color: map-get($colors, countButton);
+
+                img {
+                    width: .7rem;
+                    cursor: pointer;
+                    
+                    &:hover {
+                        opacity: $opasity;
+                    }
+                }
+            }
+
+            .buy {
+                @include button(12rem, 2.5rem, .5rem);
+                background-color: map-get($colors, avatar);
+
+                img {
+                    width: 1rem;
+                    margin-right: 1rem;
+                }
+
+                &:hover {
+                    opacity: $opasity;
+                }
+            }
+        }
+    }
+
+    footer {
+        @include font(400, 11px, map-get($colors, textLink)); 
+        text-align: center; 
+    
+        a { 
+            color: map-get($colors, footerLink);
+        }
+    }
+}
