@@ -9,11 +9,18 @@ $colors: (
 );
 
 $avatarWidth: 2.5rem;
-
 $mainImage: 25rem;
 $imageMini: 5rem;
 $borderRadiusImage: 1rem;
 $opasity: 80%;
+
+$filterOrange: brightness(0) saturate(100%) invert(67%) 
+        sepia(53%) saturate(2000%) hue-rotate(345deg) 
+        brightness(101%) contrast(91%);
+
+$filterWhite: brightness(0) saturate(100%) invert(100%) 
+              sepia(0%) saturate(0%) hue-rotate(0deg) 
+              brightness(100%) contrast(100%);
 
 @mixin font($weight: 400, $size: 16px, $color: map-get($colors, text)) {
     font-family: "Kumbh Sans", serif;
@@ -24,7 +31,7 @@ $opasity: 80%;
 
 @mixin image($width, $radius) {
     cursor: pointer;
-    border: 2px solid map-get($colors, white);
+    border: 2px solid rgba(0, 0, 0, 0);
     width: $width;
     border-radius: $radius;
 }
@@ -41,14 +48,30 @@ body {
     background-color: map-get($colors, background);
     @include font();
 
-    header {
-        border-bottom: 2px solid map-get($colors, text);
+    .curtain {
+        display: none;
+    }
 
+    header {
         img[alt="image-avatar"] {
             @include image($avatarWidth, 50%);
-
+            margin-left: 1rem;
             &:hover {
                 border-color: map-get($colors, avatar);
+            }
+        }
+
+        .offcanvas {
+            width: 75% !important;
+            img[alt="icon-close"] {
+                cursor: pointer;
+                @include button(1rem, 1rem, 0);
+                margin-bottom: 2rem;
+            }
+
+            a {
+                @include font(700, 16px, map-get($colors, textLink));
+                margin-bottom: 1rem;
             }
         }
 
@@ -64,9 +87,64 @@ body {
                 }
             }
         }
+
+        #countSneakers {
+            width: 1.2rem;
+            @include font(700, 9px, map-get($colors, white));
+            background-color: map-get($colors, avatar);
+            border-radius: .5rem;
+            position: relative;
+            left: 2rem;
+            bottom: .6rem;
+            cursor: pointer;
+            display: none !important;
+        }
+
+        img[alt="icon-cart"] {
+            cursor: pointer;
+        }
+
+        .divBasket {
+            display: none;
+            position: absolute;
+            width: 15rem;
+            right: 10%;
+            h2 {
+                @include font(700, 14px, map-get($colors, textLink));
+            }
+
+            p {
+                @include font(700, 14px, map-get($colors, text));
+                align-self: center;
+            }
+        }
     }
 
     main {
+        margin-top: 3rem;
+
+        .modal-content {
+            background-color: rgba(0, 0, 0, 0);
+            border: none;
+
+            .modal-header {
+                border: none;
+                margin-left: auto;
+                img[alt="icon-close"] {
+                    width: 1.2rem;
+                    filter: $filterWhite;
+                    cursor: pointer;
+                    position: relative;
+                    right: -1.5rem;
+                    top: 1rem;
+                    &:hover {
+                        filter: $filterOrange;
+                    }
+                }
+            }
+            
+        }
+
         img[alt="image-product"] {
             @include image($mainImage, $borderRadiusImage);
         }
@@ -78,6 +156,17 @@ body {
             &:hover {
                 opacity: $opasity;
             }
+        }
+
+        .flex-grow-1 {
+            div {
+                margin: 0;
+            }
+        }
+
+        div {
+            margin-right: 3rem;
+            padding: .5rem;
         }
 
         .chooseImage {
@@ -117,14 +206,18 @@ body {
                 cursor: auto;
                 background-color: map-get($colors, countButton);
 
-                img {
-                    width: .7rem;
+                span {
+                    display: inline;
                     cursor: pointer;
-                    
+                    width: 1.5rem;
                     &:hover {
                         opacity: $opasity;
                     }
-                }
+
+                    img {
+                        width: .7rem;
+                    }
+                }   
             }
 
             .buy {
@@ -149,6 +242,89 @@ body {
     
         a { 
             color: map-get($colors, footerLink);
+        }
+    }
+}
+
+@media screen and (max-width: 770px) {
+    body {
+        .curtain {
+            display: block;
+
+            img[alt="icon-menu"] {
+                width: 1rem;
+                margin-right: .5rem;
+            }
+
+            img[alt="logo"] {
+                width: 7rem;
+            }
+        }
+
+        header {
+            nav {
+                ul {
+                    display: none !important;
+                }
+            }
+
+            .divBasket {
+                width: 98%;
+                left: 0;
+                right: 0;
+                margin-left: 1%;
+            }
+        }
+
+        main {
+            flex-direction: column !important;
+            margin-top: 0 !important;
+    
+            div {
+                margin-right: 0rem !important;
+                padding: 0rem !important;
+            }
+    
+            img[alt=image-product] {
+                margin: 0 0 1rem 0 !important;
+                width: 20rem !important;
+                height: 20rem !important;
+            }
+    
+            .bottomImage {
+                display: none !important;
+            }
+    
+            .info {
+                h1, .newPrice {
+                    @include font(700, 24px, map-get($colors, textLink));
+                    margin-bottom: 1rem;
+
+                    .discount {
+                        @include font(700, 16px, map-get($colors, white));
+                    }
+                }
+
+                p {
+                    @include font(400, 14px);
+                }
+
+                div {
+                    flex-direction: column !important;
+                    button {
+                        width: 100% !important;
+                        margin-right: auto !important;
+                        margin-bottom: 1rem;
+                    }
+                }
+        
+                .price {
+                    display: flex;
+                    flex-direction: row !important;
+                    justify-content: space-between;
+                    align-items: center;
+                }
+            }
         }
     }
 }

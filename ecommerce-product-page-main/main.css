@@ -5,17 +5,40 @@ body {
   font-size: 16px;
   color: hsl(219, 9%, 45%);
 }
-body header {
-  border-bottom: 2px solid hsl(219, 9%, 45%);
+body .curtain {
+  display: none;
 }
 body header img[alt=image-avatar] {
   cursor: pointer;
-  border: 2px solid hsl(0, 0%, 100%);
+  border: 2px solid rgba(0, 0, 0, 0);
   width: 2.5rem;
   border-radius: 50%;
+  margin-left: 1rem;
 }
 body header img[alt=image-avatar]:hover {
   border-color: hsl(26, 100%, 55%);
+}
+body header .offcanvas {
+  width: 75% !important;
+}
+body header .offcanvas img[alt=icon-close] {
+  cursor: pointer;
+  font-family: "Kumbh Sans", serif;
+  font-weight: 700;
+  font-size: 16px;
+  color: hsl(220, 13%, 13%);
+  border: none;
+  width: 1rem;
+  height: 1rem;
+  border-radius: 0;
+  margin-bottom: 2rem;
+}
+body header .offcanvas a {
+  font-family: "Kumbh Sans", serif;
+  font-weight: 700;
+  font-size: 16px;
+  color: hsl(220, 13%, 13%);
+  margin-bottom: 1rem;
 }
 body header nav a {
   color: hsl(219, 9%, 45%) !important;
@@ -26,21 +49,86 @@ body header nav a:hover {
   border-bottom-color: hsl(26, 100%, 55%) !important;
   color: hsl(220, 13%, 13%) !important;
 }
+body header #countSneakers {
+  width: 1.2rem;
+  font-family: "Kumbh Sans", serif;
+  font-weight: 700;
+  font-size: 9px;
+  color: hsl(0, 0%, 100%);
+  background-color: hsl(26, 100%, 55%);
+  border-radius: 0.5rem;
+  position: relative;
+  left: 2rem;
+  bottom: 0.6rem;
+  cursor: pointer;
+  display: none !important;
+}
+body header img[alt=icon-cart] {
+  cursor: pointer;
+}
+body header .divBasket {
+  display: none;
+  position: absolute;
+  width: 15rem;
+  right: 10%;
+}
+body header .divBasket h2 {
+  font-family: "Kumbh Sans", serif;
+  font-weight: 700;
+  font-size: 14px;
+  color: hsl(220, 13%, 13%);
+}
+body header .divBasket p {
+  font-family: "Kumbh Sans", serif;
+  font-weight: 700;
+  font-size: 14px;
+  color: hsl(219, 9%, 45%);
+  align-self: center;
+}
+body main {
+  margin-top: 3rem;
+}
+body main .modal-content {
+  background-color: rgba(0, 0, 0, 0);
+  border: none;
+}
+body main .modal-content .modal-header {
+  border: none;
+  margin-left: auto;
+}
+body main .modal-content .modal-header img[alt=icon-close] {
+  width: 1.2rem;
+  filter: brightness(0) saturate(100%) invert(100%) sepia(0%) saturate(0%) hue-rotate(0deg) brightness(100%) contrast(100%);
+  cursor: pointer;
+  position: relative;
+  right: -1.5rem;
+  top: 1rem;
+}
+body main .modal-content .modal-header img[alt=icon-close]:hover {
+  filter: brightness(0) saturate(100%) invert(67%) sepia(53%) saturate(2000%) hue-rotate(345deg) brightness(101%) contrast(91%);
+}
 body main img[alt=image-product] {
   cursor: pointer;
-  border: 2px solid hsl(0, 0%, 100%);
+  border: 2px solid rgba(0, 0, 0, 0);
   width: 25rem;
   border-radius: 1rem;
 }
 body main img[alt=product-thumbnail] {
   margin-top: 1rem;
   cursor: pointer;
-  border: 2px solid hsl(0, 0%, 100%);
+  border: 2px solid rgba(0, 0, 0, 0);
   width: 5rem;
   border-radius: 1rem;
 }
 body main img[alt=product-thumbnail]:hover {
   opacity: 80%;
+}
+body main .flex-grow-1 div {
+  margin: 0;
+}
+body main div {
+  margin-right: 3rem;
+  padding: 0.5rem;
 }
 body main .chooseImage {
   border-color: hsl(26, 100%, 55%) !important;
@@ -93,12 +181,16 @@ body main .info .counter {
   cursor: auto;
   background-color: hsl(223, 64%, 98%);
 }
-body main .info .counter img {
-  width: 0.7rem;
+body main .info .counter span {
+  display: inline;
   cursor: pointer;
+  width: 1.5rem;
 }
-body main .info .counter img:hover {
+body main .info .counter span:hover {
   opacity: 80%;
+}
+body main .info .counter span img {
+  width: 0.7rem;
 }
 body main .info .buy {
   font-family: "Kumbh Sans", serif;
@@ -127,6 +219,77 @@ body footer {
 }
 body footer a {
   color: hsl(228, 45%, 44%);
+}
+
+@media screen and (max-width: 770px) {
+  body .curtain {
+    display: block;
+  }
+  body .curtain img[alt=icon-menu] {
+    width: 1rem;
+    margin-right: 0.5rem;
+  }
+  body .curtain img[alt=logo] {
+    width: 7rem;
+  }
+  body header nav ul {
+    display: none !important;
+  }
+  body header .divBasket {
+    width: 98%;
+    left: 0;
+    right: 0;
+    margin-left: 1%;
+  }
+  body main {
+    flex-direction: column !important;
+    margin-top: 0 !important;
+  }
+  body main div {
+    margin-right: 0rem !important;
+    padding: 0rem !important;
+  }
+  body main img[alt=image-product] {
+    margin: 0 0 1rem 0 !important;
+    width: 20rem !important;
+    height: 20rem !important;
+  }
+  body main .bottomImage {
+    display: none !important;
+  }
+  body main .info h1, body main .info .newPrice {
+    font-family: "Kumbh Sans", serif;
+    font-weight: 700;
+    font-size: 24px;
+    color: hsl(220, 13%, 13%);
+    margin-bottom: 1rem;
+  }
+  body main .info h1 .discount, body main .info .newPrice .discount {
+    font-family: "Kumbh Sans", serif;
+    font-weight: 700;
+    font-size: 16px;
+    color: hsl(0, 0%, 100%);
+  }
+  body main .info p {
+    font-family: "Kumbh Sans", serif;
+    font-weight: 400;
+    font-size: 14px;
+    color: hsl(219, 9%, 45%);
+  }
+  body main .info div {
+    flex-direction: column !important;
+  }
+  body main .info div button {
+    width: 100% !important;
+    margin-right: auto !important;
+    margin-bottom: 1rem;
+  }
+  body main .info .price {
+    display: flex;
+    flex-direction: row !important;
+    justify-content: space-between;
+    align-items: center;
+  }
 }
 
 /*# sourceMappingURL=main.css.map */

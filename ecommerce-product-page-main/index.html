@@ -20,6 +20,24 @@
 
   <header class="container d-flex flex-row align-items-center border-bottom my-0">
 
+    <div class="curtain">
+      <span data-bs-toggle="offcanvas" data-bs-target="#offcanvasExample" role="button" aria-controls="offcanvasExample">
+        <img src="images/icon-menu.svg" alt="icon-menu">
+      </span>
+      <img src="images/logo.svg" alt="logo">
+    </div>
+
+    <div class="offcanvas offcanvas-start" tabindex="-1" id="offcanvasExample">
+      <div class="offcanvas-body">
+        <img src="images/icon-close.svg" alt="icon-close" class="btn-close" data-bs-dismiss="offcanvas">
+        <a href="#" class="nav-link">Collections</a>
+        <a href="#" class="nav-link">Men</a>
+        <a href="#" class="nav-link">Women</a>
+        <a href="#" class="nav-link">About</a>
+        <a href="#" class="nav-link">Contact</a>
+      </div>
+    </div>
+
       <nav class="p-2">
           <ul class="nav">
             
@@ -47,23 +65,52 @@
       </nav>
 
       <div class="p-2 ms-auto">
-        <span id="countSneakers">0</span>
-        <img src="images/icon-cart.svg" alt="icon-cart">
-        <img src="images/image-avatar.png" alt="image-avatar">
+
+        <div class="divBasket" id="windowBasket">
+          <h2 class="border-bottom my-0">Cart</h2>
+          <p id="listBasket">Your cart is empty.</p>
+        </div>
+
+        <p class="d-inline-flex justify-content-center" id="countSneakers">0</p>
+        <img src="images/icon-cart.svg" alt="icon-cart" id="basket">
+        <img src="images/image-avatar.png" alt="image-avatar" id="avatar">
       </div>
 
   </header>
 
-  <main class="container d-flex justify-content-between align-items-center my-5">
+  <main class="container d-flex justify-content-between align-items-center">
 
-    <div class="p-2 flex-grow-1 me-5">
-      <img src="images/image-product-1.jpg" alt="image-product">
+    <div class="flex-grow-1">
+      <img src="images/image-product-1.jpg" data-bs-toggle="modal" data-bs-target="#staticBackdrop" alt="image-product" id="mainImageDiv">
 
-      <div class="d-flex flex-row justify-content-between">
+      <div class="d-flex flex-row justify-content-between bottomImage" id="imagesDiv">
         <img src="images/image-product-1-thumbnail.jpg" alt="product-thumbnail" class="chooseImage">
         <img src="images/image-product-2-thumbnail.jpg" alt="product-thumbnail">
         <img src="images/image-product-3-thumbnail.jpg" alt="product-thumbnail">
         <img src="images/image-product-4-thumbnail.jpg" alt="product-thumbnail">
+      </div>
+    </div>
+
+    <div class="modal" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1">
+      <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+          <div class="modal-header">
+            <img src="images/icon-close.svg" alt="icon-close" data-bs-dismiss="modal">
+          </div>
+          <div class="modal-body">
+            <div class="container d-flex justify-content-between align-items-center">
+              <div class="flex-grow-1">
+                <img src="images/image-product-1.jpg" data-bs-toggle="modal" data-bs-target="#staticBackdrop" alt="image-product" id="mainImageModal">
+                <div class="d-flex flex-row justify-content-between bottomImage" id="imagesModal">
+                  <img src="images/image-product-1-thumbnail.jpg" alt="product-thumbnail" class="chooseImage">
+                  <img src="images/image-product-2-thumbnail.jpg" alt="product-thumbnail">
+                  <img src="images/image-product-3-thumbnail.jpg" alt="product-thumbnail">
+                  <img src="images/image-product-4-thumbnail.jpg" alt="product-thumbnail">
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
 
@@ -74,15 +121,17 @@
 
       <p>These low-profile sneakers are your perfect casual wear companion. Featuring a 
       durable rubber outer sole, they’ll withstand everything the weather can offer.</p>
-
-      <p class="newPrice">$125.00 <span class="discount">50%</span></p>
-      <p class="oldPrice"><s>$250.00</s></p>
+      
+      <div class="price">
+        <p class="newPrice">$125.00 <span class="discount">50%</span></p>
+        <p class="oldPrice"><s>$250.00</s></p>
+      </div>
 
       <div class="d-flex align-items-center">
         <button class="d-flex justify-content-around align-items-center me-3 counter">
-          <img src="images/icon-minus.svg" alt="icon-minus">
+          <span><img src="images/icon-minus.svg" alt="icon-minus"></span>
           <span>0</span>
-          <img src="images/icon-plus.svg" alt="icon-plus">
+          <span><img src="images/icon-plus.svg" alt="icon-plus"></span>
         </button>
 
         <button class="d-flex justify-content-center align-items-center buy">
@@ -98,6 +147,7 @@
     Coded by <a href="https://github.com/xix0one" target="_blank">xix0one</a>.
   </footer>
 
+  <script src="../bootstrap-5.3.3-dist/js/bootstrap.min.js"></script>
   <script src="main.js"></script>
 </body>
 </html>
