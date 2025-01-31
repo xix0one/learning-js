@@ -95,17 +95,45 @@ body main .modal-content {
 body main .modal-content .modal-header {
   border: none;
   margin-left: auto;
+  width: 2rem;
+  height: 2rem;
 }
-body main .modal-content .modal-header img[alt=icon-close] {
+body main .modal-content .modal-header .closeModal img {
   width: 1.2rem;
   filter: brightness(0) saturate(100%) invert(100%) sepia(0%) saturate(0%) hue-rotate(0deg) brightness(100%) contrast(100%);
   cursor: pointer;
   position: relative;
-  right: -1.5rem;
-  top: 1rem;
+  top: 4rem;
 }
-body main .modal-content .modal-header img[alt=icon-close]:hover {
+body main .modal-content .modal-header .closeModal:hover img {
   filter: brightness(0) saturate(100%) invert(67%) sepia(53%) saturate(2000%) hue-rotate(345deg) brightness(101%) contrast(91%);
+}
+body main .modal-content .modal-body #mainImageModal {
+  cursor: auto;
+}
+body main .modal-content .modal-body .icons .icon-previous, body main .modal-content .modal-body .icons .icon-next {
+  position: relative;
+  top: 15rem;
+  display: flex;
+  font-family: "Kumbh Sans", serif;
+  font-weight: 700;
+  font-size: 16px;
+  color: hsl(220, 13%, 13%);
+  border: none;
+  width: 2.1rem;
+  height: 2.1rem;
+  border-radius: 50%;
+  cursor: pointer;
+  background-color: hsl(0, 0%, 100%);
+}
+body main .modal-content .modal-body .icons .icon-previous img, body main .modal-content .modal-body .icons .icon-next img {
+  width: 0.7rem;
+}
+body main .modal-content .modal-body .icons .icon-previous:hover img, body main .modal-content .modal-body .icons .icon-next:hover img {
+  filter: brightness(0) saturate(100%) invert(67%) sepia(53%) saturate(2000%) hue-rotate(345deg) brightness(101%) contrast(91%);
+}
+body main .modal-content .modal-body .icons .icon-next {
+  left: 9.5rem;
 }
 body main img[alt=image-product] {
   cursor: pointer;
@@ -121,7 +149,7 @@ body main img[alt=product-thumbnail] {
   border-radius: 1rem;
 }
 body main img[alt=product-thumbnail]:hover {
-  opacity: 80%;
+  opacity: 50%;
 }
 body main .flex-grow-1 div {
   margin: 0;
@@ -132,7 +160,7 @@ body main div {
 }
 body main .chooseImage {
   border-color: hsl(26, 100%, 55%) !important;
-  opacity: 80%;
+  opacity: 50%;
 }
 body main .info h1 {
   font-family: "Kumbh Sans", serif;
@@ -187,7 +215,7 @@ body main .info .counter span {
   width: 1.5rem;
 }
 body main .info .counter span:hover {
-  opacity: 80%;
+  opacity: 50%;
 }
 body main .info .counter span img {
   width: 0.7rem;
@@ -208,7 +236,7 @@ body main .info .buy img {
   margin-right: 1rem;
 }
 body main .info .buy:hover {
-  opacity: 80%;
+  opacity: 50%;
 }
 body footer {
   font-family: "Kumbh Sans", serif;

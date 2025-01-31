@@ -41,7 +41,7 @@
       <nav class="p-2">
           <ul class="nav">
             
-            <li class="nav-item me-3">
+            <li class="nav-item me-3 mt-2">
               <img src="images/logo.svg" alt="logo" class="navbar-brand mb-0">
             </li>
 
@@ -95,9 +95,13 @@
       <div class="modal-dialog modal-dialog-centered">
         <div class="modal-content">
           <div class="modal-header">
-            <img src="images/icon-close.svg" alt="icon-close" data-bs-dismiss="modal">
+            <div class="closeModal d-flex justify-content-center" data-bs-dismiss="modal"><img src="images/icon-close.svg" alt="icon-close"></div>
           </div>
           <div class="modal-body">
+            <div class="icons d-flex justify-content-between">
+              <div class="icon-previous d-flex justify-content-center" id="previousButton"><img src="images/icon-previous.svg" alt="icon-previous"></div>
+              <div class="icon-next d-flex justify-content-center" id="nextButton"><img src="images/icon-next.svg" alt="icon-next"></div>
+            </div>
             <div class="container d-flex justify-content-between align-items-center">
               <div class="flex-grow-1">
                 <img src="images/image-product-1.jpg" data-bs-toggle="modal" data-bs-target="#staticBackdrop" alt="image-product" id="mainImageModal">
@@ -129,12 +133,12 @@
 
       <div class="d-flex align-items-center">
         <button class="d-flex justify-content-around align-items-center me-3 counter">
-          <span><img src="images/icon-minus.svg" alt="icon-minus"></span>
-          <span>0</span>
-          <span><img src="images/icon-plus.svg" alt="icon-plus"></span>
+          <span id="minus"><img src="images/icon-minus.svg" alt="icon-minus"></span>
+          <span id="amount">0</span>
+          <span id="plus"><img src="images/icon-plus.svg" alt="icon-plus"></span>
         </button>
 
-        <button class="d-flex justify-content-center align-items-center buy">
+        <button class="d-flex justify-content-center align-items-center buy" id="addToCart">
           <img src="images/icon-cart.svg" alt="icon-cart">
           Add to cart
         </button>

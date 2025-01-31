@@ -12,7 +12,7 @@ $avatarWidth: 2.5rem;
 $mainImage: 25rem;
 $imageMini: 5rem;
 $borderRadiusImage: 1rem;
-$opasity: 80%;
+$opasity: 50%;
 
 $filterOrange: brightness(0) saturate(100%) invert(67%) 
         sepia(53%) saturate(2000%) hue-rotate(345deg) 
@@ -130,19 +130,57 @@ body {
             .modal-header {
                 border: none;
                 margin-left: auto;
-                img[alt="icon-close"] {
-                    width: 1.2rem;
-                    filter: $filterWhite;
-                    cursor: pointer;
-                    position: relative;
-                    right: -1.5rem;
-                    top: 1rem;
+                width: 2rem;
+                height: 2rem;
+                .closeModal {
+                    img {
+                        width: 1.2rem;
+                        filter: $filterWhite;
+                        cursor: pointer;
+                        position: relative;
+                        top: 4rem;
+                    }
                     &:hover {
-                        filter: $filterOrange;
+                        img {
+                            filter: $filterOrange;
+                        }
+                        
                     }
                 }
             }
-            
+
+            .modal-body {
+
+                #mainImageModal {
+                    cursor: auto;
+                }
+
+                .icons {
+                    .icon-previous {
+                        position: relative;
+                        top: 15rem;
+                        display: flex;
+                        @include button(2.1rem, 2.1rem, 50%);
+                        cursor: pointer;
+                        background-color: map-get($colors, white);
+                        
+                        img {
+                            width: .7rem;
+                        }
+    
+                        &:hover {
+                            img {
+                                filter: $filterOrange;
+                            }
+                        }
+                    }
+    
+                    .icon-next {
+                        @extend .icon-previous;
+                        left: 9.5rem;
+                    }
+                }
+            }
         }
 
         img[alt="image-product"] {
