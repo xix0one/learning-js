@@ -8,12 +8,15 @@ body {
 body .curtain {
   display: none;
 }
+body header {
+  box-sizing: content-box;
+}
 body header img[alt=image-avatar] {
   cursor: pointer;
   border: 2px solid rgba(0, 0, 0, 0);
   width: 2.5rem;
   border-radius: 50%;
-  margin-left: 1rem;
+  margin-right: 1rem;
 }
 body header img[alt=image-avatar]:hover {
   border-color: hsl(26, 100%, 55%);
@@ -61,15 +64,17 @@ body header #countSneakers {
   left: 2rem;
   bottom: 0.6rem;
   cursor: pointer;
-  display: none !important;
+  display: none;
 }
 body header img[alt=icon-cart] {
   cursor: pointer;
+  margin-right: 0.5rem;
 }
 body header .divBasket {
   display: none;
   position: absolute;
-  width: 15rem;
+  width: 20rem;
+  height: 10rem;
   right: 10%;
 }
 body header .divBasket h2 {
@@ -78,12 +83,75 @@ body header .divBasket h2 {
   font-size: 14px;
   color: hsl(220, 13%, 13%);
 }
-body header .divBasket p {
+body header .divBasket div {
   font-family: "Kumbh Sans", serif;
   font-weight: 700;
   font-size: 14px;
   color: hsl(219, 9%, 45%);
   align-self: center;
+}
+body header .divBasket .shop {
+  display: none;
+  margin-top: 1rem;
+}
+body header .divBasket .shop img[alt=image-product-1-thumbnail] {
+  font-family: "Kumbh Sans", serif;
+  font-weight: 700;
+  font-size: 16px;
+  color: hsl(220, 13%, 13%);
+  border: none;
+  width: 3rem;
+  height: 3rem;
+  border-radius: 0.2rem;
+}
+body header .divBasket .shop p {
+  font-family: "Kumbh Sans", serif;
+  font-weight: 400;
+  font-size: 14px;
+  color: hsl(219, 9%, 45%);
+}
+body header .divBasket .shop p #totalShop {
+  font-family: "Kumbh Sans", serif;
+  font-weight: 700;
+  font-size: 14px;
+  color: hsl(220, 13%, 13%);
+}
+body header .divBasket .shop button {
+  font-family: "Kumbh Sans", serif;
+  font-weight: 700;
+  font-size: 16px;
+  color: hsl(220, 13%, 13%);
+  border: none;
+  width: 1rem;
+  height: 1rem;
+  border-radius: 0;
+}
+body header .divBasket .shop button img[alt=icon-delete] {
+  font-family: "Kumbh Sans", serif;
+  font-weight: 700;
+  font-size: 16px;
+  color: hsl(220, 13%, 13%);
+  border: none;
+  width: 1rem;
+  height: 1rem;
+  border-radius: 0;
+}
+body header .divBasket #checkout {
+  display: none;
+  margin-top: 1rem;
+  align-self: center;
+  font-family: "Kumbh Sans", serif;
+  font-weight: 700;
+  font-size: 16px;
+  color: hsl(220, 13%, 13%);
+  border: none;
+  width: 90%;
+  height: 3rem;
+  border-radius: 0.5rem;
+  background-color: hsl(26, 100%, 55%);
+}
+body header .divBasket #checkout:hover {
+  opacity: 50%;
 }
 body main {
   margin-top: 3rem;
@@ -134,6 +202,9 @@ body main .modal-content .modal-body .icons .icon-previous:hover img, body main 
 }
 body main .modal-content .modal-body .icons .icon-next {
   left: 9.5rem;
+}
+body main .leftRightButtons {
+  display: none !important;
 }
 body main img[alt=image-product] {
   cursor: pointer;
@@ -250,6 +321,9 @@ body footer a {
 }
 
 @media screen and (max-width: 770px) {
+  body .modal-backdrop {
+    display: none !important;
+  }
   body .curtain {
     display: block;
   }
@@ -259,6 +333,9 @@ body footer a {
   }
   body .curtain img[alt=logo] {
     width: 7rem;
+  }
+  body header img[alt=image-avatar] {
+    width: 2.3rem;
   }
   body header nav ul {
     display: none !important;
@@ -272,6 +349,43 @@ body footer a {
   body main {
     flex-direction: column !important;
     margin-top: 0 !important;
+  }
+  body main .leftRightButtons {
+    display: flex !important;
+    width: 95%;
+    position: relative;
+    top: 9rem;
+  }
+  body main .leftRightButtons .iconPreviousTelephone,
+  body main .leftRightButtons .iconNextTelephone {
+    font-family: "Kumbh Sans", serif;
+    font-weight: 700;
+    font-size: 16px;
+    color: hsl(220, 13%, 13%);
+    border: none;
+    width: 2.7rem;
+    height: 2.7rem;
+    border-radius: 50%;
+    cursor: pointer;
+    background-color: hsl(0, 0%, 100%);
+  }
+  body main .leftRightButtons .iconPreviousTelephone img,
+  body main .leftRightButtons .iconNextTelephone img {
+    width: 0.7rem;
+  }
+  body main .leftRightButtons .iconPreviousTelephone:hover img,
+  body main .leftRightButtons .iconNextTelephone:hover img {
+    filter: brightness(0) saturate(100%) invert(67%) sepia(53%) saturate(2000%) hue-rotate(345deg) brightness(101%) contrast(91%);
+  }
+  body main .flex-grow-1 {
+    margin-top: -2.3rem;
+    margin-bottom: 1rem;
+  }
+  body main .flex-grow-1 #mainImageDiv {
+    cursor: auto;
+  }
+  body main .modal {
+    display: none !important;
   }
   body main div {
     margin-right: 0rem !important;
@@ -297,6 +411,13 @@ body footer a {
     font-weight: 700;
     font-size: 16px;
     color: hsl(0, 0%, 100%);
+  }
+  body main .info h2 {
+    margin-top: 1rem;
+    font-family: "Kumbh Sans", serif;
+    font-weight: 700;
+    font-size: 14px;
+    color: hsl(219, 9%, 45%);
   }
   body main .info p {
     font-family: "Kumbh Sans", serif;

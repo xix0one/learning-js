@@ -53,9 +53,11 @@ body {
     }
 
     header {
+        box-sizing: content-box;
+
         img[alt="image-avatar"] {
             @include image($avatarWidth, 50%);
-            margin-left: 1rem;
+            margin-right: 1rem;
             &:hover {
                 border-color: map-get($colors, avatar);
             }
@@ -97,25 +99,62 @@ body {
             left: 2rem;
             bottom: .6rem;
             cursor: pointer;
-            display: none !important;
+            display: none;
         }
 
         img[alt="icon-cart"] {
             cursor: pointer;
+            margin-right: .5rem;
         }
 
         .divBasket {
             display: none;
             position: absolute;
-            width: 15rem;
+            width: 20rem;
+            height: 10rem;
             right: 10%;
             h2 {
                 @include font(700, 14px, map-get($colors, textLink));
             }
 
-            p {
+            div {
                 @include font(700, 14px, map-get($colors, text));
                 align-self: center;
+            }
+
+            .shop {
+                display: none;
+                margin-top: 1rem;
+                img[alt="image-product-1-thumbnail"] {
+                    @include button(3rem, 3rem, .2rem);
+                }
+                
+                p {
+                    @include font(400, 14px, map-get($colors, text));
+
+                    #totalShop {
+                        @include font(700, 14px, map-get($colors, textLink));
+                    }
+                }
+
+                button {
+                    @include button(1rem, 1rem, 0);
+                    img[alt="icon-delete"] {
+                        @include button(1rem, 1rem, 0);
+                    }
+                }
+                
+            }
+
+            #checkout {
+                display: none;
+                margin-top: 1rem;
+                align-self: center;
+                @include button(90%, 3rem, .5rem);
+                background-color: map-get($colors, avatar);
+                &:hover {
+                    opacity: $opasity;
+                }
             }
         }
     }
@@ -181,6 +220,10 @@ body {
                     }
                 }
             }
+        }
+
+        .leftRightButtons {
+            display: none !important;
         }
 
         img[alt="image-product"] {
@@ -286,6 +329,10 @@ body {
 
 @media screen and (max-width: 770px) {
     body {
+        .modal-backdrop {
+            display: none !important;
+        }
+
         .curtain {
             display: block;
 
@@ -300,6 +347,10 @@ body {
         }
 
         header {
+            img[alt="image-avatar"] {
+                width: 2.3rem;
+            }
+
             nav {
                 ul {
                     display: none !important;
@@ -315,6 +366,42 @@ body {
         }
 
         main {
+            .leftRightButtons {
+                display: flex !important;
+                width: 95%;
+                position: relative;
+                top: 9rem;
+
+                .iconPreviousTelephone,
+                .iconNextTelephone {
+                    @include button(2.7rem, 2.7rem, 50%);
+                    cursor: pointer;
+                    background-color: map-get($colors, white);
+
+                    img {
+                        width: .7rem;
+                    }
+
+                    &:hover {
+                        img {
+                            filter: $filterOrange;
+                        }
+                    }
+                }
+            }
+
+            .flex-grow-1 {
+                margin-top: -2.3rem;
+                margin-bottom: 1rem;
+                #mainImageDiv {
+                    cursor: auto;
+                }
+            }
+
+            .modal {
+                display: none !important;
+            }
+
             flex-direction: column !important;
             margin-top: 0 !important;
     
@@ -341,6 +428,11 @@ body {
                     .discount {
                         @include font(700, 16px, map-get($colors, white));
                     }
+                }
+
+                h2 {
+                    margin-top: 1rem;
+                    @include font(700, 14px);
                 }
 
                 p {
