@@ -1,0 +1,74 @@
+body {
+  font-family: "League Spartan", serif !important;
+  font-weight: 500 !important;
+  font-size: 15px !important;
+  color: hsl(180, 29%, 50%) !important;
+  background-color: hsl(180, 52%, 96%) !important;
+}
+body header {
+  background-color: white;
+  position: relative;
+  bottom: 1rem;
+}
+body header #clear {
+  cursor: pointer;
+}
+body header #clear:hover {
+  text-decoration: underline;
+}
+body button {
+  margin-left: 1rem;
+  font-family: "League Spartan", serif !important;
+  font-weight: 700 !important;
+  font-size: 15px !important;
+  color: hsl(180, 29%, 50%) !important;
+  background-color: hsl(180, 52%, 96%);
+  border: none;
+  border-radius: 0.3rem;
+}
+body button:hover {
+  color: white !important;
+  background-color: hsl(180, 29%, 50%);
+}
+body .header {
+  background-image: url(images/bg-header-desktop.svg);
+  background-repeat: no-repeat;
+  background-size: 100% 100%;
+  height: 7rem;
+  background-color: hsl(180, 29%, 50%);
+}
+body h2, body h1 {
+  font-family: "League Spartan", serif !important;
+  font-weight: 700 !important;
+  font-size: 15px !important;
+  color: hsl(180, 29%, 50%) !important;
+}
+body section {
+  background-color: white;
+}
+body section img {
+  width: 6rem;
+}
+body section #name {
+  font-family: "League Spartan", serif !important;
+  font-weight: 700 !important;
+  font-size: 16px !important;
+  color: hsl(180, 29%, 50%) !important;
+  color: hsl(180, 14%, 20%) !important;
+}
+body section #name:hover {
+  color: hsl(180, 29%, 50%) !important;
+  cursor: pointer;
+}
+body section #tagsBottom {
+  color: hsl(180, 8%, 52%) !important;
+}
+body footer {
+  font-size: 11px;
+  text-align: center;
+}
+body footer a {
+  color: hsl(228, 45%, 44%);
+}
+
+/*# sourceMappingURL=main.css.map */
