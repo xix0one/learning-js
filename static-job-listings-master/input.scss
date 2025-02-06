@@ -10,15 +10,31 @@ body {
     background-color: hsl(180, 52%, 96%) !important;
 
     header {
-        // visibility: hidden; 
+        visibility: hidden;
         background-color: white;
         position: relative;
         bottom: 1rem;
-
+        height: 3.5rem;
         #clear {
             cursor: pointer;
             &:hover {
                 text-decoration: underline;
+            }
+        }
+
+        #filter {
+            div {
+                
+                background-color: hsl(180, 31%, 95%);
+                margin-right: 1rem;
+                span {
+                    margin-left: .3rem;
+                }
+                
+                button {
+                    margin-left: .5rem;
+                    background-color: hsl(180, 29%, 50%);
+                }
             }
         }
     }
@@ -62,9 +78,31 @@ body {
             }
         }
 
+        #tagsTop {
+            .new {
+                @include font(700, 14px, white);
+                margin: 0 .5rem;
+                border-radius: 1rem;
+                background-color: hsl(180, 29%, 50%);
+            }
+            .featured {
+                @include font(700, 14px, white);
+                border-radius: 1rem;
+                background-color: hsl(180, 14%, 20%);
+            }
+        }
+
         #tagsBottom {
             color: hsl(180, 8%, 52%) !important;
         }
+    }
+
+    section.FEATURED {
+        border-left: solid 5px hsl(180, 29%, 50%);
+    }
+
+    section.hidden {
+        display: none !important;
     }
     
     footer {

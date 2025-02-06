@@ -152,13 +152,116 @@ const FILE_LIST = [
       "tools": ["React", "Sass"]
     }
   ];
-  
-let main = document.getElementById("main");
 
-function createButton(text, className) {
+let header = document.getElementsByTagName("header")[0];
+let main = document.getElementById("main");
+let filterHeader = document.getElementById("filter");
+let clear = document.getElementById("clear");
+let sections = document.getElementsByTagName("section");
+
+let filterItems = [];
+
+function removeArrayFilter(event) {
+    for (let i = 0; i < filterItems.length; ++i) {
+      if (event.target.className == filterItems[i])
+          filterItems.splice(i, 1);
+    }
+}
+
+function resetFilter() {
+    for (let i = 0; i < sections.length; ++i) {
+      sections[i].classList.remove("hidden");
+    }
+    filterItems = [];
+}
+
+function defaultHeader() {
+    header.className = "";
+    header.style.visibility = "hidden";
+    header.style.height = "3.5rem";
+}
+
+function clearHeader() {
+  let divs = header.getElementsByTagName("div");
+  for (let i = 0; i < divs.length; ++i) {
+      if (divs[i].id !== "filter" && divs[i].id !== "clear")
+        divs[i].remove();
+  }
+  defaultHeader();
+  resetFilter();
+}
+
+function checkSpan(event) {
+  let spans = header.getElementsByTagName("span");
+  for (let i = 0; i < spans.length; ++i) {
+      if (event.target.textContent == spans[i].textContent)
+          return false;
+  }
+  return true;
+}
+
+function removeItemFilter(event) {
+    document.getElementById(event.target.className).remove();
+    let divs = header.getElementsByTagName("div");
+    if (divs.length === 2) {
+        defaultHeader();
+        resetFilter();
+    } 
+    else {
+      event.target.classList.remove("idRemove");
+      removeArrayFilter(event);
+      let rex = new RegExp(`\\b${event.target.className}\\b`);
+      for (let i = 0; i < sections.length; ++i) {
+          // console.log(rex.test(sections[i].className), !filterItems.includes(sections[i].className), event.target.className, sections[i].className);
+          
+          if (rex.test(sections[i].className) && (!filterItems.includes(sections[i].className)))
+            sections[i].classList.remove("hidden");
+      }
+    }
+}
+
+function filtration(event) {
+    let regExp = new RegExp(event.target.textContent);
+    for (let i = 0; i < sections.length; ++i) {
+        if (!(regExp.test(sections[i].className)))
+            sections[i].classList.add('hidden'); 
+    }
+}
+
+function addItemFilter(event) {
+    header.className = "container d-flex justify-content-between align-items-center p-3 shadow rounded";
+    header.style.visibility = "visible";
+    header.style.height = "auto";
+
+    if (checkSpan(event)) {
+      filterItems.push(event.target.textContent);
+
+      let div = document.createElement("div");    
+      let closeBtn = document.createElement("button");
+      let img = document.createElement("img");
+      let span = document.createElement("span");
+      
+      span.textContent = event.target.textContent;
+      div.className = "d-flex align-items-center rounded ";
+      div.id = "idRemove " + event.target.textContent;
+      closeBtn.className = "idRemove " + event.target.textContent;
+      img.className = "idRemove " + event.target.textContent;
+      img.src = "images/icon-remove.svg";
+      
+      closeBtn.addEventListener("mousedown", removeItemFilter);
+      closeBtn.append(img);
+      div.append(span);
+      div.append(closeBtn);
+      filterHeader.append(div);
+
+      filtration(event);
+    }
+}
+
+function createButton(text) {
     let btn = document.createElement("button");
     btn.textContent = text;
-    // btn.className = className;
+    btn.addEventListener("mousedown", addItemFilter);
     return btn;
 }
 
@@ -180,18 +283,22 @@ for (let i = 0; i < FILE_LIST.length; ++i) {
     let divInfo = document.createElement("div");
     let h2 = document.createElement("h2");
     h2.textContent = FILE_LIST[i].company + " ";
+    h2.className = "align-items-center";
     let spanH2 = document.createElement("span");
     spanH2.id = "tagsTop";
 
     if (FILE_LIST[i].new) {
         let spanH2Span = document.createElement("span");
-        spanH2Span.textContent = "NEW! ";
+        spanH2Span.textContent = "NEW!";
+        spanH2Span.className = "new p-1";
         spanH2.append(spanH2Span);
     }
     if (FILE_LIST[i].featured) {
         let spanH2Span = document.createElement("span");
         spanH2Span.textContent = "FEATURED";
+        spanH2Span.classList = "featured p-1";
         spanH2.append(spanH2Span);
+        section.classList.add("FEATURED");
     }
     
     h2.append(spanH2);
@@ -221,15 +328,21 @@ for (let i = 0; i < FILE_LIST.length; ++i) {
 
     divRight.append(createButton(FILE_LIST[i].role));
     divRight.append(createButton(FILE_LIST[i].level));
+    section.classList.add(FILE_LIST[i].role);
+    section.classList.add(FILE_LIST[i].level);
 
     FILE_LIST[i].tools.forEach(tool => {
         divRight.append(createButton(tool));
+        section.classList.add(tool)
     });
     FILE_LIST[i].languages.forEach(lang => {
         divRight.append(createButton(lang));
+        section.classList.add(lang)
     });
 
     section.append(divLeft);
     section.append(divRight);
     main.append(section);
 }
+
+clear.addEventListener("mousedown", clearHeader);

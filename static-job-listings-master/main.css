@@ -6,15 +6,28 @@ body {
   background-color: hsl(180, 52%, 96%) !important;
 }
 body header {
+  visibility: hidden;
   background-color: white;
   position: relative;
   bottom: 1rem;
+  height: 3.5rem;
 }
 body header #clear {
   cursor: pointer;
 }
 body header #clear:hover {
   text-decoration: underline;
+}
+body header #filter div {
+  background-color: hsl(180, 31%, 95%);
+  margin-right: 1rem;
+}
+body header #filter div span {
+  margin-left: 0.3rem;
+}
+body header #filter div button {
+  margin-left: 0.5rem;
+  background-color: hsl(180, 29%, 50%);
 }
 body button {
   margin-left: 1rem;
@@ -60,8 +73,31 @@ body section #name:hover {
   color: hsl(180, 29%, 50%) !important;
   cursor: pointer;
 }
+body section #tagsTop .new {
+  font-family: "League Spartan", serif !important;
+  font-weight: 700 !important;
+  font-size: 14px !important;
+  color: white !important;
+  margin: 0 0.5rem;
+  border-radius: 1rem;
+  background-color: hsl(180, 29%, 50%);
+}
+body section #tagsTop .featured {
+  font-family: "League Spartan", serif !important;
+  font-weight: 700 !important;
+  font-size: 14px !important;
+  color: white !important;
+  border-radius: 1rem;
+  background-color: hsl(180, 14%, 20%);
+}
 body section #tagsBottom {
   color: hsl(180, 8%, 52%) !important;
+}
+body section.FEATURED {
+  border-left: solid 5px hsl(180, 29%, 50%);
+}
+body section.hidden {
+  display: none !important;
 }
 body footer {
   font-size: 11px;
