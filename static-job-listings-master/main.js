@@ -183,7 +183,7 @@ function defaultHeader() {
 
 function clearHeader() {
   let divs = header.getElementsByTagName("div");
-  for (let i = 0; i < divs.length; ++i) {
+  for (let i = divs.length - 1; i >= 0; --i) {
       if (divs[i].id !== "filter" && divs[i].id !== "clear")
         divs[i].remove();
   }
@@ -200,6 +200,20 @@ function checkSpan(event) {
   return true;
 }
 
+function filterAfterRemoveItem() {
+  for (let i = 0; i < sections.length; ++i) {
+    for (let j = 0; j < filterItems.length; ++j) {
+        let rex = new RegExp(`\\b${filterItems[j]}\\b`);
+        if (rex.test(sections[i].className))
+            sections[i].classList.remove("hidden");
+        else {
+            sections[i].classList.add("hidden");
+            break;
+        }
+    }
+  }
+}
+
 function removeItemFilter(event) {
     document.getElementById(event.target.className).remove();
     let divs = header.getElementsByTagName("div");
@@ -210,13 +224,7 @@ function removeItemFilter(event) {
     else {
       event.target.classList.remove("idRemove");
       removeArrayFilter(event);
-      let rex = new RegExp(`\\b${event.target.className}\\b`);
-      for (let i = 0; i < sections.length; ++i) {
-          // console.log(rex.test(sections[i].className), !filterItems.includes(sections[i].className), event.target.className, sections[i].className);
-          
-          if (rex.test(sections[i].className) && (!filterItems.includes(sections[i].className)))
-            sections[i].classList.remove("hidden");
-      }
+      filterAfterRemoveItem();
     }
 }
 
@@ -230,6 +238,9 @@ function filtration(event) {
 
 function addItemFilter(event) {
     header.className = "container d-flex justify-content-between align-items-center p-3 shadow rounded";
+    if (window.innerWidth < 400) {
+        header.classList.add("flex-row");
+    }
     header.style.visibility = "visible";
     header.style.height = "auto";
 
@@ -242,7 +253,7 @@ function addItemFilter(event) {
       let span = document.createElement("span");
       
       span.textContent = event.target.textContent;
-      div.className = "d-flex align-items-center rounded ";
+      div.className = "d-flex align-items-center rounded";
       div.id = "idRemove " + event.target.textContent;
       closeBtn.className = "idRemove " + event.target.textContent;
       img.className = "idRemove " + event.target.textContent;
@@ -256,6 +267,13 @@ function addItemFilter(event) {
 
       filtration(event);
     }
+}
+
+function headerClick(event) {
+   event.target.className.split(" ").forEach(e => {
+      let fakeEvent = { target: { textContent: e } };
+      addItemFilter(fakeEvent);
+   });
 }
 
 function createButton(text) {
@@ -306,7 +324,9 @@ for (let i = 0; i < FILE_LIST.length; ++i) {
 
     let h2Ranks = document.createElement("h2");
     h2Ranks.id = "name";
+    h2Ranks.className = FILE_LIST[i].level + " " + FILE_LIST[i].role;
     h2Ranks.textContent = FILE_LIST[i].position;
+    h2Ranks.addEventListener("mousedown", headerClick);
     divInfo.append(h2Ranks);
 
     let tagsBottom = document.createElement("div");
@@ -343,6 +363,23 @@ for (let i = 0; i < FILE_LIST.length; ++i) {
     section.append(divLeft);
     section.append(divRight);
     main.append(section);
+
+    if (window.innerWidth < 400) {
+        section.classList.remove("my-4");
+        section.classList.remove("p-4");
+        section.classList.remove("flex-row");
+        section.classList.add("flex-column");
+        section.classList.remove("align-items-center");
+
+        divImg.classList.remove("me-3");
+
+        divLeft.classList.remove("flex-row");
+        divLeft.classList.add("flex-column");
+        divLeft.classList.remove("align-items-center");
+        divLeft.style.marginTop = "-1rem";
+
+        divRight.id = "divRight";
+    }
 }
 
 clear.addEventListener("mousedown", clearHeader);
