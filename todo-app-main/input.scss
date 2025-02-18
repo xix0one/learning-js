@@ -14,7 +14,7 @@ body {
     background-color: hsl(235, 21%, 11%) !important;
     background-image: url(images/bg-desktop-dark.jpg);
     background-repeat: no-repeat;
-    background-size: 100% 50%;
+    background-size: 100% 45vh;
     
     div {
         width: 40%;
@@ -26,6 +26,10 @@ body {
                 @include font(700, 2.5rem);
                 letter-spacing: 10px;
                 margin: 0;
+            }
+
+            #theme {
+                cursor: pointer;
             }
         }
 

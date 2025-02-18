@@ -2,7 +2,7 @@ body {
   background-color: hsl(235, 21%, 11%) !important;
   background-image: url(images/bg-desktop-dark.jpg);
   background-repeat: no-repeat;
-  background-size: 100% 50%;
+  background-size: 100% 45vh;
 }
 body div {
   width: 40%;
@@ -21,6 +21,9 @@ body div header h1 {
   color: hsl(0, 0%, 98%) !important;
   letter-spacing: 10px;
   margin: 0;
+}
+body div header #theme {
+  cursor: pointer;
 }
 body div main div {
   background-color: hsl(235, 24%, 19%);
