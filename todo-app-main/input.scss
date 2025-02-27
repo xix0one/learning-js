@@ -10,18 +10,73 @@
     margin-bottom: 0;
 }
 
+$white: hsl(0, 0%, 98%);
+
+body.lightTheme {
+    background-color: hsl(236, 33%, 92%) !important;
+    background-image: url(images/bg-desktop-light.jpg);
+
+    div {
+        @include font(400, 15px, hsl(235, 19%, 35%));
+
+        main {
+            #todo {
+                box-shadow: 0px 10px 24px 3px rgba(34, 60, 80, 0.23);
+
+                div {
+                    background-color: $white;
+                    border-bottom: 1px solid hsl(233, 11%, 84%);
+                }
+            }
+
+            div {
+                background-color: $white;
+
+                input[type="text"] {
+                    background-color: $white;
+                    color: hsl(235, 19%, 35%) !important;
+                }
+
+                input[type="checkbox"] {
+                    border: 1px solid hsl(236, 9%, 61%);
+                    &:hover {
+                        background: linear-gradient($white, $white 0) padding-box,
+                                    linear-gradient(to bottom right, hsl(192, 100%, 67%), hsl(280, 87%, 65%)) border-box;
+                    }
+                    &:checked {
+                        background: 
+                            url(images/icon-check.svg) center no-repeat,
+                            linear-gradient(to bottom right, hsl(192, 100%, 67%), hsl(280, 87%, 65%)); 
+                    }
+                }
+            }
+        }
+
+        .footerDiv {
+            box-shadow: 0px 9px 14px -6px rgba(34, 60, 80, 0.2);
+            div {
+                span {
+                    &:hover {
+                        color: hsl(235, 19%, 35%);
+                    }
+                }
+            }
+        }
+    }
+}
+
 body {
     background-color: hsl(235, 21%, 11%) !important;
     background-image: url(images/bg-desktop-dark.jpg);
     background-repeat: no-repeat;
-    background-size: 100% 45vh;
+    background-size: 100% 35vh;
     
     div {
-        width: 40%;
+        width: 60%;
         @include font();
 
         header {
-            margin-top: 25%;
+            margin-top: 15%;
             h1 {
                 @include font(700, 2.5rem);
                 letter-spacing: 10px;
@@ -59,10 +114,13 @@ body {
                 input[type="checkbox"] {
                     appearance: none;
                     border: 1px solid hsl(233, 14%, 35%);
-                    width: 1.2rem;
-                    height: 1.2rem;
+                    width: 20px;
+                    height: 20px;
                     border-radius: 50%;
                     margin-right: 1rem;
+                    box-sizing: border-box;
+                    padding: 0;
+                    flex-shrink: 0;
 
                     &:hover {
                         cursor: pointer;
@@ -75,7 +133,9 @@ body {
                     &:checked {
                         background: 
                             url(images/icon-check.svg) center no-repeat,
-                            linear-gradient(to bottom right, hsl(192, 100%, 67%), hsl(280, 87%, 65%)); 
+                            linear-gradient(to bottom right, hsl(192, 100%, 67%), hsl(280, 87%, 65%));
+
+                        background-size: 12px 12px, cover; 
                     }
                 }
             }
@@ -96,12 +156,15 @@ body {
                     border-bottom: 1px solid hsl(233, 14%, 35%);
                     width: 100%;
                     border-radius: 0;
+                    cursor: grab;
 
                     span {
-                        cursor: pointer;
+                        white-space: normal; 
+                        word-wrap: break-word; 
                     }
 
                     #spanIMG {
+                        cursor: pointer;
                         display: none;
                         margin-left: auto;
                         border-radius: 50%;
@@ -149,4 +212,20 @@ body {
             }
         }
     }   
+}
+
+@media screen and (min-width: 1440px) {
+    body {
+        div {
+            width: 40%;
+        }
+    }
+}
+
+@media screen and (max-width: 870px) {
+    body {
+        div {
+            width: 80%;
+        }
+    }
 }

@@ -1,18 +1,58 @@
+body.lightTheme {
+  background-color: hsl(236, 33%, 92%) !important;
+  background-image: url(images/bg-desktop-light.jpg);
+}
+body.lightTheme div {
+  font-family: "Josefin Sans", serif !important;
+  font-weight: 400 !important;
+  font-size: 15px !important;
+  color: hsl(235, 19%, 35%) !important;
+}
+body.lightTheme div main #todo {
+  box-shadow: 0px 10px 24px 3px rgba(34, 60, 80, 0.23);
+}
+body.lightTheme div main #todo div {
+  background-color: hsl(0, 0%, 98%);
+  border-bottom: 1px solid hsl(233, 11%, 84%);
+}
+body.lightTheme div main div {
+  background-color: hsl(0, 0%, 98%);
+}
+body.lightTheme div main div input[type=text] {
+  background-color: hsl(0, 0%, 98%);
+  color: hsl(235, 19%, 35%) !important;
+}
+body.lightTheme div main div input[type=checkbox] {
+  border: 1px solid hsl(236, 9%, 61%);
+}
+body.lightTheme div main div input[type=checkbox]:hover {
+  background: linear-gradient(hsl(0, 0%, 98%), hsl(0, 0%, 98%) 0) padding-box, linear-gradient(to bottom right, hsl(192, 100%, 67%), hsl(280, 87%, 65%)) border-box;
+}
+body.lightTheme div main div input[type=checkbox]:checked {
+  background: url(images/icon-check.svg) center no-repeat, linear-gradient(to bottom right, hsl(192, 100%, 67%), hsl(280, 87%, 65%));
+}
+body.lightTheme div .footerDiv {
+  box-shadow: 0px 9px 14px -6px rgba(34, 60, 80, 0.2);
+}
+body.lightTheme div .footerDiv div span:hover {
+  color: hsl(235, 19%, 35%);
+}
+
 body {
   background-color: hsl(235, 21%, 11%) !important;
   background-image: url(images/bg-desktop-dark.jpg);
   background-repeat: no-repeat;
-  background-size: 100% 45vh;
+  background-size: 100% 35vh;
 }
 body div {
-  width: 40%;
+  width: 60%;
   font-family: "Josefin Sans", serif !important;
   font-weight: 400 !important;
   font-size: 15px !important;
   color: hsl(0, 0%, 98%) !important;
 }
 body div header {
-  margin-top: 25%;
+  margin-top: 15%;
 }
 body div header h1 {
   font-family: "Josefin Sans", serif !important;
@@ -53,10 +93,13 @@ body div main div input[type=text]:focus {
 body div main div input[type=checkbox] {
   appearance: none;
   border: 1px solid hsl(233, 14%, 35%);
-  width: 1.2rem;
-  height: 1.2rem;
+  width: 20px;
+  height: 20px;
   border-radius: 50%;
   margin-right: 1rem;
+  box-sizing: border-box;
+  padding: 0;
+  flex-shrink: 0;
 }
 body div main div input[type=checkbox]:hover {
   cursor: pointer;
@@ -66,6 +109,7 @@ body div main div input[type=checkbox]:hover {
 }
 body div main div input[type=checkbox]:checked {
   background: url(images/icon-check.svg) center no-repeat, linear-gradient(to bottom right, hsl(192, 100%, 67%), hsl(280, 87%, 65%));
+  background-size: 12px 12px, cover;
 }
 body div main #todo {
   padding: 0;
@@ -83,11 +127,14 @@ body div main #todo div {
   border-bottom: 1px solid hsl(233, 14%, 35%);
   width: 100%;
   border-radius: 0;
+  cursor: grab;
 }
 body div main #todo div span {
-  cursor: pointer;
+  white-space: normal;
+  word-wrap: break-word;
 }
 body div main #todo div #spanIMG {
+  cursor: pointer;
   display: none;
   margin-left: auto;
   border-radius: 50%;
@@ -127,6 +174,17 @@ body div footer {
 }
 body div footer a {
   color: hsl(228, 45%, 44%);
+}
+
+@media screen and (min-width: 1440px) {
+  body div {
+    width: 40%;
+  }
+}
+@media screen and (max-width: 870px) {
+  body div {
+    width: 80%;
+  }
 }
 
 /*# sourceMappingURL=main.css.map */

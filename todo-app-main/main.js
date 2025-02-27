@@ -8,7 +8,7 @@ let main = document.body.getElementsByTagName("main")[0];
 let inputText = document.getElementById("inputText");
 
 let darkTheme = true;
-let list = { "javascript course": false, "jog around park": false, "read": false, "pick up groceries": false };
+let list = { "javascript course": false, "jog around park": false, "read": false, "pick up groceries": false, "pick up groceries and do some other very long tasks that need to be done and do some other very long tasks that need to be done": false };
 
 function delDiv(event) {
     let el = event.target.className;
@@ -41,73 +41,85 @@ function checkCheckBox(event) {
 }
 
 function changeTheme() {
-    let divs = main.getElementsByTagName("div");
-    let span = todoDiv.getElementsByClassName("textSpan");
-    const white = "hsl(0, 0%, 98%)";
-
     if (darkTheme) {
         iconTheme.src = "images/icon-moon.svg";
-        document.body.style.backgroundImage = "url(images/bg-desktop-light.jpg)";
-        document.body.style.backgroundColor = white;
-        inputText.style.backgroundColor = white;
-
-        for (let i = 0; i < divs.length; ++i)
-            divs[i].style.backgroundColor = white;   
-
-        for (let i = 0; i < span.length; ++i) 
-            span[i].style.color = "hsl(235, 19%, 35%)";
+        document.body.classList.add("lightTheme");
     }
     else {
         iconTheme.src = "images/icon-sun.svg";
-        document.body.style.backgroundImage = "";
-        document.body.style.backgroundColor = "";
-        inputText.style.backgroundColor = "";
-
-        for (let i = 0; i < divs.length; ++i) 
-            divs[i].style.backgroundColor = "";
-        
-        for (let i = 0; i < span.length; ++i) 
-            span[i].style.color = "";
+        document.body.classList.remove("lightTheme");
     }
     darkTheme = !darkTheme;
 }
 
 theme.addEventListener("mousedown", changeTheme);
 
+function checkItem(item) {
+    let reg = new RegExp(item);
+    for (let i = 0; i < todoDiv.childNodes.length; ++i) {
+        if (reg.test(todoDiv.childNodes[i].className)) 
+            return false;
+    }
+    return true;
+}
+
 function addItemInDiv() {
     for (let key in list) {
-        let div = document.createElement("div");
-        div.className = "d-flex flex-row align-items-center " + key;
+        if (checkItem(key)) {
+            let div = document.createElement("div");
+            div.className = "d-flex flex-row align-items-center " + key;
+            div.draggable = true;
 
-        let span = document.createElement("span");
-        span.textContent = key;
-        span.className = "textSpan";
+            let span = document.createElement("span");
+            span.textContent = key;
+            span.className = "textSpan";
 
-        if (list[key]) {
-            span.style.textDecoration = "line-through";
-        } 
+            let checkBox = document.createElement("input");
+            if (list[key]) {
+                span.style.textDecoration = "line-through";
+                span.style.color = "hsl(234, 11%, 52%)";
+                checkBox.checked = true;
+            }
+            
+            checkBox.type = "checkbox";
+            checkBox.className = key;
+            checkBox.addEventListener("change", checkCheckBox);
 
-        let checkBox = document.createElement("input");
-        checkBox.type = "checkbox";
-        checkBox.className = key;
-        checkBox.addEventListener("change", checkCheckBox);
+            let spanIMG = document.createElement("span");
+            spanIMG.id = "spanIMG";
+            spanIMG.className = key;
+            spanIMG.addEventListener("mousedown", delDiv);
+            let img = document.createElement("img");
+            img.src = "images/icon-cross.svg";
+            img.alt = "icon-cross";
+            img.className = key;
+            spanIMG.append(img);
 
-        let spanIMG = document.createElement("span");
-        spanIMG.id = "spanIMG";
-        spanIMG.className = key;
-        spanIMG.addEventListener("mousedown", delDiv);
-        let img = document.createElement("img");
-        img.src = "images/icon-cross.svg";
-        img.alt = "icon-cross";
-        img.className = key;
-        spanIMG.append(img);
-
-        div.append(checkBox);
-        div.append(span);
-        div.append(spanIMG);
-        todoDiv.append(div);
+            div.append(checkBox);
+            div.append(span);
+            div.append(spanIMG);
+            todoDiv.append(div);
+        }
     }
 }
 
 addItemInDiv();
 addCount();
+
+function addNewTodo(event) {
+    if (event.key === "Enter") {
+        let completed = document.getElementById("newTodoCheckBox");
+
+        if (completed.checked)
+            list[inputText.value] = true;
+        else
+            list[inputText.value] = false;
+
+        inputText.value = "";
+        completed.checked = false;
+        addItemInDiv();
+        addCount();
+    }
+}
+
+inputText.addEventListener("keydown", addNewTodo);
