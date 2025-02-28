@@ -146,6 +146,12 @@ body div main #todo div #spanIMG img {
 body div main #todo div:hover #spanIMG {
   display: inline;
 }
+body div main #todo div.dragging {
+  opacity: 0.5;
+}
+body div main #todo div.hidden {
+  display: none !important;
+}
 body div .footerDiv {
   background-color: hsl(235, 24%, 19%);
   margin-bottom: 0;
@@ -166,6 +172,12 @@ body div .footerDiv div span {
 }
 body div .footerDiv div span:hover {
   color: hsl(236, 33%, 92%);
+}
+body div .footerDiv div .choosed {
+  color: hsl(220, 98%, 61%);
+}
+body div .footerDiv div .choosed:hover {
+  color: hsl(220, 98%, 61%);
 }
 body div footer {
   color: hsl(234, 11%, 52%);

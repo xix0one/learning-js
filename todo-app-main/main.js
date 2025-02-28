@@ -6,19 +6,26 @@ let theme = document.getElementById("theme");
 let iconTheme = document.getElementById("imgTheme");
 let main = document.body.getElementsByTagName("main")[0];
 let inputText = document.getElementById("inputText");
+let footerDiv = document.getElementById("footerDiv");
+let spansFooterDiv = footerDiv.getElementsByTagName("span");
 
 let darkTheme = true;
-let list = { "javascript course": false, "jog around park": false, "read": false, "pick up groceries": false, "pick up groceries and do some other very long tasks that need to be done and do some other very long tasks that need to be done": false };
+let list = { "javascript course": true, "jog around park": false, "read": false, "pick up groceries": false, "do some other very long tasks that need to be done and do some other very long tasks that need to be done": false };
+
+let allFilter = document.getElementById("all");
+let activeFilter = document.getElementById("active");
+let completedFilter = document.getElementById("completed");
+let clearCompleted = document.getElementById("clearCompleted");
 
 function delDiv(event) {
-    let el = event.target.className;
+    let el = event.target.getAttribute("dataTask");
     let reg = new RegExp(el);
     delete list[el];
     addCount();
 
-    for (let i = 0; i < todoDiv.childNodes.length; ++i) {
-        if (reg.test(todoDiv.childNodes[i].className)) 
-            todoDiv.childNodes[i].remove();
+    for (let i = 0; i < todoDiv.children.length; ++i) {
+        if (reg.test(todoDiv.children[i].getAttribute("dataTask"))) 
+            todoDiv.children[i].remove();
     }
 }
 
@@ -56,19 +63,31 @@ theme.addEventListener("mousedown", changeTheme);
 
 function checkItem(item) {
     let reg = new RegExp(item);
-    for (let i = 0; i < todoDiv.childNodes.length; ++i) {
-        if (reg.test(todoDiv.childNodes[i].className)) 
+    for (let i = 0; i < todoDiv.children.length; ++i) {
+        if (reg.test(todoDiv.children[i].getAttribute("dataTask"))) 
             return false;
     }
     return true;
+}
+
+function addDrag(elem) {
+    elem.addEventListener("dragstart", function() {
+        elem.classList.add("dragging");
+    });
+
+    elem.addEventListener("dragend", function() {
+        elem.classList.remove("dragging");
+    });
 }
 
 function addItemInDiv() {
     for (let key in list) {
         if (checkItem(key)) {
             let div = document.createElement("div");
-            div.className = "d-flex flex-row align-items-center " + key;
+            div.className = "d-flex flex-row align-items-center item";
+            div.setAttribute("dataTask", key);
             div.draggable = true;
+            addDrag(div);
 
             let span = document.createElement("span");
             span.textContent = key;
@@ -82,17 +101,17 @@ function addItemInDiv() {
             }
             
             checkBox.type = "checkbox";
-            checkBox.className = key;
+            checkBox.setAttribute("dataTask", key);
             checkBox.addEventListener("change", checkCheckBox);
 
             let spanIMG = document.createElement("span");
             spanIMG.id = "spanIMG";
-            spanIMG.className = key;
+            spanIMG.setAttribute("dataTask", key);
             spanIMG.addEventListener("mousedown", delDiv);
             let img = document.createElement("img");
             img.src = "images/icon-cross.svg";
             img.alt = "icon-cross";
-            img.className = key;
+            img.setAttribute("dataTask", key);
             spanIMG.append(img);
 
             div.append(checkBox);
@@ -106,15 +125,15 @@ function addItemInDiv() {
 addItemInDiv();
 addCount();
 
+clearCompleted.addEventListener("mousedown", function() {
+    
+});
+
+
 function addNewTodo(event) {
     if (event.key === "Enter") {
         let completed = document.getElementById("newTodoCheckBox");
-
-        if (completed.checked)
-            list[inputText.value] = true;
-        else
-            list[inputText.value] = false;
-
+        list[inputText.value] = completed.checked ? true : false;
         inputText.value = "";
         completed.checked = false;
         addItemInDiv();
@@ -123,3 +142,58 @@ function addNewTodo(event) {
 }
 
 inputText.addEventListener("keydown", addNewTodo);
+
+todoDiv.addEventListener("dragover", function(event) {
+    event.preventDefault();
+    let activeEl = todoDiv.querySelector(".dragging");
+    let currentEl = event.target.closest('.item');
+    if (!activeEl) return;
+
+    let nextEl = (currentEl === activeEl.nextElementSibling)
+        ? currentEl.nextElementSibling
+        : currentEl;
+
+    if (nextEl && nextEl.parentNode === todoDiv)
+        todoDiv.insertBefore(activeEl, nextEl);
+    else 
+        todoDiv.appendChild(activeEl);
+});
+
+function clearChoosed() {
+    for (let i = 0; i < spansFooterDiv.length; ++i) {
+        spansFooterDiv[i].classList.remove("choosed");
+    }
+
+    for (let i = 0; i < todoDiv.children.length; ++i) {
+        todoDiv.children[i].classList.remove("hidden");
+    }
+}
+
+allFilter.addEventListener("mousedown", function() {
+    clearChoosed();
+    allFilter.classList.add("choosed");
+});
+
+function filter(item, choose) {
+    if (choose) {
+        let reg = new RegExp(item);
+        for (let i = 0; i < todoDiv.children.length; ++i) {
+            console.log(item, reg.test(todoDiv.childNodes[i].className));
+            if (reg.test(todoDiv.children[i].className)) {
+                todoDiv.children[i].classList.add("hidden");
+            }        
+        }
+    }
+}
+
+activeFilter.addEventListener("mousedown", function() {
+    clearChoosed();
+    activeFilter.classList.add("choosed");
+    for (let item in list) filter(item, list[item]);
+});
+
+completedFilter.addEventListener("mousedown", function() {
+    clearChoosed();
+    completedFilter.classList.add("choosed");
+    for (let item in list) filter(item, !list[item]);
+});

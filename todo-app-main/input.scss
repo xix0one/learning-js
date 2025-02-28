@@ -179,7 +179,15 @@ body {
                             display: inline;
                         }
                     }
-                }   
+                }
+
+                div.dragging {
+                    opacity: 0.5;
+                }
+                
+                div.hidden {
+                    display: none !important;
+                }
             }
         }
 
@@ -197,6 +205,13 @@ body {
                     cursor: pointer;
                     &:hover {
                         color: hsl(236, 33%, 92%);
+                    }
+                }
+
+                .choosed {
+                    color: hsl(220, 98%, 61%);
+                    &:hover {
+                        color: hsl(220, 98%, 61%);
                     }
                 }
                 
