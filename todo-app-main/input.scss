@@ -69,7 +69,7 @@ body {
     background-color: hsl(235, 21%, 11%) !important;
     background-image: url(images/bg-desktop-dark.jpg);
     background-repeat: no-repeat;
-    background-size: 100% 35vh;
+    background-size: 100% 33vh;
     
     div {
         width: 60%;
@@ -217,6 +217,10 @@ body {
                 
             }
         }
+
+        .mobileDiv {
+            display: none;
+        }
         
         footer {
             color: hsl(234, 11%, 52%);
@@ -241,6 +245,57 @@ body {
     body {
         div {
             width: 80%;
+        }
+    }
+}
+
+@media screen and (max-width: 580px) {
+    body.lightTheme {
+        background-image: url(images/bg-mobile-light.jpg);
+    }
+
+    body {
+        background-image: url(images/bg-mobile-dark.jpg);
+        div {
+            width: 90%;
+            header {
+                h1 {
+                    @include font(400, 2rem);
+                }
+            }
+
+            main {
+                #todo {
+                    div {
+                        #spanIMG {
+                            display: inline;
+                        }
+                    }
+                }
+            }
+
+            .footerDiv {
+                margin-bottom: 1.5rem;
+
+                div:nth-child(2) {
+                    display: none !important;
+                }
+            }
+
+            .mobileDiv {
+                padding: 0;
+                display: flex;
+                margin-top: 0;
+                div {
+                    padding: 0;
+                    span {
+                        @include font(400, 14px, hsl(234, 11%, 52%));
+                    }
+                    .choosed {
+                        color: hsl(220, 98%, 61%) !important;
+                    }
+                }
+            }
         }
     }
 }

@@ -42,7 +42,7 @@ body {
   background-color: hsl(235, 21%, 11%) !important;
   background-image: url(images/bg-desktop-dark.jpg);
   background-repeat: no-repeat;
-  background-size: 100% 35vh;
+  background-size: 100% 33vh;
 }
 body div {
   width: 60%;
@@ -179,6 +179,9 @@ body div .footerDiv div .choosed {
 body div .footerDiv div .choosed:hover {
   color: hsl(220, 98%, 61%);
 }
+body div .mobileDiv {
+  display: none;
+}
 body div footer {
   color: hsl(234, 11%, 52%);
   font-size: 11px;
@@ -196,6 +199,49 @@ body div footer a {
 @media screen and (max-width: 870px) {
   body div {
     width: 80%;
+  }
+}
+@media screen and (max-width: 580px) {
+  body.lightTheme {
+    background-image: url(images/bg-mobile-light.jpg);
+  }
+  body {
+    background-image: url(images/bg-mobile-dark.jpg);
+  }
+  body div {
+    width: 90%;
+  }
+  body div header h1 {
+    font-family: "Josefin Sans", serif !important;
+    font-weight: 400 !important;
+    font-size: 2rem !important;
+    color: hsl(0, 0%, 98%) !important;
+  }
+  body div main #todo div #spanIMG {
+    display: inline;
+  }
+  body div .footerDiv {
+    margin-bottom: 1.5rem;
+  }
+  body div .footerDiv div:nth-child(2) {
+    display: none !important;
+  }
+  body div .mobileDiv {
+    padding: 0;
+    display: flex;
+    margin-top: 0;
+  }
+  body div .mobileDiv div {
+    padding: 0;
+  }
+  body div .mobileDiv div span {
+    font-family: "Josefin Sans", serif !important;
+    font-weight: 400 !important;
+    font-size: 14px !important;
+    color: hsl(234, 11%, 52%) !important;
+  }
+  body div .mobileDiv div .choosed {
+    color: hsl(220, 98%, 61%) !important;
   }
 }
 

@@ -17,8 +17,14 @@ let activeFilter = document.getElementById("active");
 let completedFilter = document.getElementById("completed");
 let clearCompleted = document.getElementById("clearCompleted");
 
-function delDiv(event) {
-    let el = event.target.getAttribute("dataTask");
+let allMobile = document.getElementById("allMobile");
+let activeMobile = document.getElementById("activeMobile");
+let completedMobile = document.getElementById("completedMobile");
+let mobileDiv = document.getElementById("mobileDiv");
+let spansMobileDiv = mobileDiv.getElementsByTagName("span");
+
+function delDiv(event, str) {
+    let el = event ? event.target.getAttribute("dataTask") : str;
     let reg = new RegExp(el);
     delete list[el];
     addCount();
@@ -36,13 +42,13 @@ function addCount() {
 }
 
 function checkCheckBox(event) {
-    if (!list[event.target.className]) {
-        list[event.target.className] = true;
+    if (!list[event.target.getAttribute("datatask")]) {
+        list[event.target.getAttribute("datatask")] = true;
         event.target.nextSibling.style.textDecoration = "line-through";
         event.target.nextSibling.style.color = "hsl(234, 11%, 52%)";
     }
     else {
-        list[event.target.className] = false;
+        list[event.target.getAttribute("datatask")] = false;
         event.target.nextSibling.style = "";
     }
 }
@@ -126,18 +132,25 @@ addItemInDiv();
 addCount();
 
 clearCompleted.addEventListener("mousedown", function() {
-    
+    for (let key in list) {
+        if (list[key]) 
+            delDiv(0, key);
+    }
+    clearChoosed();
+    allDivFilter();
 });
 
 
 function addNewTodo(event) {
     if (event.key === "Enter") {
-        let completed = document.getElementById("newTodoCheckBox");
-        list[inputText.value] = completed.checked ? true : false;
-        inputText.value = "";
-        completed.checked = false;
-        addItemInDiv();
-        addCount();
+        if (inputText.value.trim()) {
+            let completed = document.getElementById("newTodoCheckBox");
+            list[inputText.value] = completed.checked ? true : false;
+            inputText.value = "";
+            completed.checked = false;
+            addItemInDiv();
+            addCount();
+        }
     }
 }
 
@@ -160,8 +173,15 @@ todoDiv.addEventListener("dragover", function(event) {
 });
 
 function clearChoosed() {
-    for (let i = 0; i < spansFooterDiv.length; ++i) {
-        spansFooterDiv[i].classList.remove("choosed");
+    if (window.innerWidth <= 581) {
+        for (let i = 0; i < spansMobileDiv.length; ++i) {
+            spansMobileDiv[i].classList.remove("choosed");
+        }
+    }
+    else {
+        for (let i = 0; i < spansFooterDiv.length; ++i) {
+            spansFooterDiv[i].classList.remove("choosed");
+        }
     }
 
     for (let i = 0; i < todoDiv.children.length; ++i) {
@@ -169,31 +189,50 @@ function clearChoosed() {
     }
 }
 
-allFilter.addEventListener("mousedown", function() {
+function allDivFilter(event) {
     clearChoosed();
-    allFilter.classList.add("choosed");
-});
+    if (window.innerWidth <= 581)
+        allMobile.classList.add("choosed");
+    else 
+        allFilter.classList.add("choosed");
+    addCount();
+} 
+allFilter.addEventListener("mousedown", allDivFilter);
+allMobile.addEventListener("mousedown", allDivFilter);
 
 function filter(item, choose) {
     if (choose) {
         let reg = new RegExp(item);
         for (let i = 0; i < todoDiv.children.length; ++i) {
-            console.log(item, reg.test(todoDiv.childNodes[i].className));
-            if (reg.test(todoDiv.children[i].className)) {
+            if (reg.test(todoDiv.children[i].getAttribute("dataTask"))) {
                 todoDiv.children[i].classList.add("hidden");
             }        
         }
     }
 }
 
-activeFilter.addEventListener("mousedown", function() {
+function actFilter(event) {
     clearChoosed();
-    activeFilter.classList.add("choosed");
-    for (let item in list) filter(item, list[item]);
-});
+    event.target.classList.add("choosed");
+    let sum = 0;
+    for (let item in list) {
+        filter(item, list[item]);
+        if (!list[item]) ++sum;
+    }
+    count.textContent = sum + " ";
+}
+activeFilter.addEventListener("mousedown", actFilter);
+activeMobile.addEventListener("mousedown", actFilter);
 
-completedFilter.addEventListener("mousedown", function() {
+function complFilter(event) {
     clearChoosed();
-    completedFilter.classList.add("choosed");
-    for (let item in list) filter(item, !list[item]);
-});
+    event.target.classList.add("choosed");
+    let sum = 0;
+    for (let item in list) {
+        filter(item, !list[item]);
+        if (list[item]) ++sum;
+    }
+    count.textContent = sum + " ";
+}   
+completedFilter.addEventListener("mousedown", complFilter);
+completedMobile.addEventListener("mousedown", complFilter);
