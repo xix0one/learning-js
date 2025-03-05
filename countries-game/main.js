@@ -106,13 +106,6 @@ modalClose.addEventListener("click", function () {
     startGame();
 });
 
-modalBackground.addEventListener("click", function (event) {
-    if (event.target === modalBackground) {
-        modalBackground.style.display = "none";
-        startGame();
-    }
-});
-
 function checkWin() {
     let str = "";
 
