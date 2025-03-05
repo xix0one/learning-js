@@ -13,7 +13,6 @@ body main {
   width: 70%;
 }
 body main #beginWindow {
-  display: none;
   height: 10rem;
   border: 3px solid rgb(13, 6, 117);
   border-radius: 2rem;
@@ -38,7 +37,20 @@ body main #beginWindow button {
   box-shadow: 0px -2px 0px 1px rgba(62, 62, 187, 0.644) inset;
 }
 body main #game {
-  width: 70%;
+  display: none;
+  width: 500px;
+}
+body main #game .progressBar {
+  border: 2px solid white;
+  width: 10rem;
+  height: 1.5rem;
+  border-radius: 3rem;
+}
+body main #game .progressBar .barColor {
+  background-color: rgb(100, 231, 12);
+  height: 1.2rem;
+  border-radius: 3rem;
+  width: 0%;
 }
 body main #game #word {
   margin-bottom: 1rem;
@@ -80,6 +92,92 @@ body main #game #clear {
 }
 body main #game #clear span {
   cursor: pointer;
+}
+body main .modalBackground {
+  display: none;
+  background: rgba(0, 0, 0, 0.8);
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  cursor: pointer;
+  z-index: 1;
+}
+body main .modalBackground .modalActive {
+  display: flex;
+  flex-direction: column;
+  position: absolute;
+  width: 250px;
+  height: 255px;
+  top: calc(50% - 125px);
+  left: calc(50% - 125px);
+  border-radius: 10px;
+  background-color: rgb(255, 255, 255);
+  cursor: default;
+  padding: 40px 20px;
+}
+body main .modalBackground .modalActive h2 {
+  font-size: 2rem;
+}
+body main .modalBackground .modalActive .nextButton,
+body main .modalBackground .modalActive .exitButton {
+  font-family: "Sigmar", sans-serif !important;
+  font-weight: 400 !important;
+  font-size: 1.3rem !important;
+  font-style: normal;
+  color: white !important;
+  margin: 0.5rem;
+  align-self: center;
+}
+body main .modalBackground .modalActive .nextButton span,
+body main .modalBackground .modalActive .exitButton span {
+  background-color: rgb(49, 49, 245) !important;
+  padding: 0 1rem;
+  cursor: pointer;
+  border: 1px solid black;
+  border-radius: 2rem;
+  font-size: 1.5rem;
+  box-shadow: 4px 4px 8px 20px rgba(34, 60, 80, 0.637) inset;
+}
+body main .modalBackground .modalActive .modalWindow {
+  position: relative;
+  color: black;
+}
+
+@media screen and (max-width: 550px) {
+  body main #game {
+    width: 400px !important;
+  }
+  body main #game #alphabet div {
+    padding: 0;
+    text-align: center;
+  }
+  body main #game #word {
+    font-size: 2rem !important;
+  }
+  body main #game #word .empty {
+    width: 1.5rem;
+  }
+  body main #game #word div {
+    width: 1.5rem;
+  }
+}
+@media screen and (max-width: 420px) {
+  body main #game {
+    width: 300px !important;
+  }
+  body main #game #alphabet div {
+    padding: 0;
+    text-align: center;
+  }
+  body main #game #word {
+    font-size: 2rem !important;
+  }
+  body main #game #word .empty {
+    width: 1.5rem;
+  }
+  body main #game #word div {
+    width: 1.5rem;
+  }
 }
 
 /*# sourceMappingURL=main.css.map */

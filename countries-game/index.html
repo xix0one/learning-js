@@ -21,19 +21,17 @@
             <button id="play">play</button>
         </section>
 
-        <section id="game" class="d-flex flex-column">
+        <section id="game" class="flex-column">
             <header class="d-flex justify-content-between align-items-center">
                 <h2>Countries</h2>
-                <div>progress bar</div>
+                <div class="progressBar"><div class="barColor" id="progressBarColor"></div></div>
             </header>
 
             <div>
                 <div id="word" class="d-flex flex-row justify-content-between">
-
                 </div>
 
                 <div id="alphabet">
-
                 </div>
             </div>
 
@@ -41,6 +39,21 @@
                 <span>clear</span>
             </div>
         </section>
+
+        <div class="modalBackground">
+            <div class="modalActive">
+                <div class="d-flex align-items-center flex-column modalWindow">
+                    <p>win!</p>
+                    <h2 id="winWord"></h2>
+                </div>
+                <div class="nextButton">
+                    <span>next</span>
+                </div>
+                <div class="exitButton">
+                    <span>exit</span>
+                </div>
+            </div>
+        </div>
 
         <!-- you win new game or exit -->
     </main>

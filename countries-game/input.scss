@@ -17,8 +17,6 @@ body {
         width: 70%;
         #beginWindow {
 
-            display: none; // deletre
-
             height: 10rem;
             border: 3px solid rgb(13, 6, 117);
             border-radius: 2rem;
@@ -42,10 +40,24 @@ body {
         }
         
         #game {
-            // display: none;
+            display: none;
 
-            width: 70%;
+            width: 500px;
             
+            .progressBar {
+                border: 2px solid white;
+                width: 10rem;
+                height: 1.5rem;
+                border-radius: 3rem;
+
+                .barColor {
+                    background-color: rgb(100, 231, 12);
+                    height: 1.2rem;
+                    border-radius: 3rem;
+                    width: 0%;
+                }
+            }
+
             #word {
                 margin-bottom: 1rem;
                 @include font(3rem);
@@ -87,6 +99,114 @@ body {
                 margin-left: auto;
                 span {
                     cursor: pointer;
+                }
+            }
+        }
+
+        .modalBackground {
+            display: none;
+            background: rgba(0, 0, 0, 0.8);
+            position: fixed;
+            width: 100%;
+            height: 100%;
+            cursor: pointer;
+            z-index: 1;
+
+            .modalActive {
+                display: flex;
+                flex-direction: column;
+                position: absolute;
+                width: 250px;
+                height: 255px;
+                top: calc(50% - 125px);
+                left: calc(50% - 125px);
+                border-radius: 10px;
+                background-color: rgb(255, 255, 255);
+                cursor: default;
+                padding: 40px 20px;
+
+                h2 {
+                    font-size: 2rem;
+                }
+
+                .nextButton,
+                .exitButton {
+                    @include font(1.3rem);
+                    margin: .5rem;
+                    align-self: center;
+                    span {
+                        background-color: rgb(49, 49, 245) !important;;
+                        padding: 0 1rem;
+                        cursor: pointer;
+                        border: 1px solid black;
+                        border-radius: 2rem;
+                        font-size: 1.5rem;
+                        box-shadow: 4px 4px 8px 20px rgba(34, 60, 80, 0.637) inset;
+                    }
+                    
+                }
+
+                .modalWindow {
+                    position: relative;
+                    color: black;
+                }
+            }
+        }
+    }
+}
+
+@media screen and (max-width: 550px) {
+    body {
+        main {
+            #game {
+                width: 400px !important;
+
+                #alphabet {
+                    div {
+                        padding: 0;
+                        text-align: center;
+                    }
+                }
+
+                #word {
+                    font-size: 2rem !important;
+    
+                    .empty {
+                        width: 1.5rem;
+                    }
+
+                    div {
+                        width: 1.5rem;
+                    }
+                }
+            }
+        }
+    }
+}
+
+@media screen and (max-width: 420px) {
+    body {
+        main {
+            #game {
+                width: 300px !important;
+
+                #alphabet {
+                    div {
+                        padding: 0;
+                        text-align: center;
+                    }
+                }
+
+                #word {
+                    font-size: 2rem !important;
+    
+                    .empty {
+                        width: 1.5rem;
+                    }
+
+                    div {
+                        width: 1.5rem;
+                    }
                 }
             }
         }

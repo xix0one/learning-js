@@ -6,6 +6,15 @@ let gameSection = document.getElementById("game");
 let words = document.getElementById("word");
 let alphabet = document.getElementById("alphabet");
 let clear = document.getElementById("clear");
+let progressBarColor = document.getElementById("progressBarColor");
+let winWord = document.getElementById("winWord");
+let exitModal = document.getElementsByClassName("exitButton")[0];
+
+const modalBackground = document.getElementsByClassName("modalBackground")[0];
+const modalActive = document.getElementsByClassName("modalActive")[0];
+let modalClose = document.getElementsByClassName("nextButton")[0];
+
+let progressBarColorWidth = 20;
 
 let countries = ["RUSSIA", "CHINA", "INDIA", "INDONESIA", "BRAZIL"];
 let countryChoosed = "";
@@ -25,7 +34,8 @@ function rndEmptyLetters(word) {
 function delLetter(event) {
     for (let i = 0; i < alphabet.children.length; ++i) {
         if (event.target.textContent === alphabet.children[i].textContent) {
-            alphabet.children[i].classList.remove("choose");
+            if (!alphabet.children[i].getAttribute("default"))
+                alphabet.children[i].classList.remove("choose");
             alphabet.children[i].removeAttribute("player");
         }
     }
@@ -83,6 +93,26 @@ function checkEmpty() {
     return false;
 }
 
+function openModal() {
+    modalBackground.style.display = "block";
+    winWord.textContent = countryChoosed;
+    if (countries.length == 0) {
+        modalClose.style.display = "none";
+    }
+}
+
+modalClose.addEventListener("click", function () {
+    modalBackground.style.display = "none";
+    startGame();
+});
+
+modalBackground.addEventListener("click", function (event) {
+    if (event.target === modalBackground) {
+        modalBackground.style.display = "none";
+        startGame();
+    }
+});
+
 function checkWin() {
     let str = "";
 
@@ -92,7 +122,9 @@ function checkWin() {
 
     if (str === countryChoosed) {
         console.log("win");
-        startGame();
+        progressBarColor.style.width = progressBarColorWidth + "%";
+        progressBarColorWidth += 20;
+        openModal();
     }
 }
 
@@ -127,6 +159,7 @@ function alphabetRendering() {
 
         if (chooseLetters.includes(String.fromCharCode(i))) {
             div.classList = "choose";
+            div.setAttribute("default", "true");
         }
 
         alphabet.appendChild(div);
@@ -160,9 +193,21 @@ clear.addEventListener("mousedown", function() {
     for (let i = 0; i < alphabet.children.length; ++i) {
         if (alphabet.children[i].getAttribute("player")) {
             alphabet.children[i].removeAttribute("player");
-            alphabet.children[i].className = "";
+            if (!alphabet.children[i].getAttribute("default"))
+                alphabet.children[i].className = "";
         }
     }
 });
 
-startGame(); // dreleter
+function restartGame() {
+    progressBarColorWidth = 20;
+    progressBarColor.style.width = "0%";
+    countries = ["RUSSIA", "CHINA", "INDIA", "INDONESIA", "BRAZIL"];
+    countryChoosed = "";
+    modalClose.style.display = "";
+    modalBackground.style.display = "none";
+    beginWindow.style.display = "block";
+    gameSection.style.display = "none";
+}
+
+exitModal.addEventListener("mousedown", restartGame);
