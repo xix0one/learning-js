@@ -1,0 +1,65 @@
+body {
+  background-image: url(../assets/crew/background-crew-desktop.jpg);
+  color: white !important;
+}
+body main {
+  margin-top: 100px;
+}
+body main .divWidth {
+  width: 500px;
+}
+body main h1 {
+  font-size: 2rem;
+  font-weight: 200;
+}
+body main h2 {
+  font-size: 2rem;
+  font-weight: 200;
+  margin-bottom: 7rem;
+}
+body main h2 span {
+  color: rgba(207, 224, 255, 0.61);
+}
+body main h3 {
+  font-weight: 200;
+  color: rgba(207, 224, 255, 0.61);
+}
+body main article {
+  flex: 1;
+  text-align: justify;
+}
+body main article h1 {
+  font-size: 4rem;
+  margin-bottom: 2rem;
+}
+body main article p {
+  margin-top: 2rem;
+  font-size: 1rem;
+  max-width: 400px;
+  color: rgba(207, 224, 255, 0.61);
+}
+body main article #description {
+  height: 150px;
+}
+body main article .naviga p {
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  background-color: rgba(207, 224, 255, 0.61);
+  margin-right: 2rem;
+  cursor: pointer;
+}
+body main article .naviga p.active {
+  background-color: white;
+}
+body main div {
+  flex: 1;
+}
+body main div img {
+  position: fixed;
+  bottom: 0;
+  max-height: 70vh;
+  width: auto;
+}
+
+/*# sourceMappingURL=crew.css.map */

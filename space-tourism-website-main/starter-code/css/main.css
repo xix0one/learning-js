@@ -1,0 +1,37 @@
+body {
+  background-color: black !important;
+  background-repeat: no-repeat;
+  background-size: 100% 100vh;
+  padding: 2rem;
+}
+body header div.strip {
+  height: 1px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.322);
+  width: 100%;
+  margin-left: 1rem;
+  position: relative;
+  left: 1rem;
+}
+body nav {
+  width: 100%;
+}
+body nav .nav {
+  background-color: rgba(0, 0, 0, 0.425);
+}
+body nav .nav li {
+  margin: 0 2rem;
+  height: 2.5rem;
+  margin-top: 1rem;
+}
+body nav .nav li.active-link {
+  border-bottom: 1px solid white;
+}
+body nav .nav li a {
+  color: white;
+  text-decoration: none;
+}
+body nav .nav li a span {
+  font-weight: 500;
+}
+
+/*# sourceMappingURL=main.css.map */

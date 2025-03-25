@@ -1,0 +1,43 @@
+body {
+    background-color: black !important;
+    background-repeat: no-repeat;
+    background-size: 100% 100vh;
+    padding: 2rem;
+
+    header {
+        div.strip {
+            height: 1px;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.322);
+            width: 100%;
+            margin-left: 1rem;
+            position: relative;
+            left: 1rem;
+        }
+    }
+
+    nav {
+        width: 100%;
+
+        .nav {
+            background-color: rgba(0, 0, 0, 0.425);
+
+            li {
+                margin: 0 2rem;
+                height: 2.5rem;
+                margin-top: 1rem;
+
+                &.active-link {
+                    border-bottom: 1px solid white;
+                }
+
+                a {
+                    color: white;
+                    text-decoration: none;
+                    span {
+                        font-weight: 500;
+                    }
+                }
+            }
+        }
+    }
+}

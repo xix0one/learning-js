@@ -1,0 +1,101 @@
+$semi-white: rgba(207, 224, 255, 0.61);
+
+body {
+    background-image: url(../assets/destination/background-destination-desktop.jpg);
+    color: white !important;
+
+    main {
+        margin-top: 100px;
+
+    h1 {
+        font-size: 2rem;
+        font-weight: 200;
+    }
+
+    h2 {
+        font-size: 2rem;
+        font-weight: 200;
+    }
+
+    h3 {
+        font-weight: 200;
+    }
+
+        article {
+            flex: 1;
+            text-align: justify;
+
+            h1 {
+                font-size: 2rem;
+                margin-bottom: 3rem;
+                span {
+                    color: $semi-white;
+                }
+            }
+
+            h2 {
+                font-size: 6rem;
+                & + p {
+                    padding-bottom: 2rem;
+                    border-bottom: 1px solid rgba(255, 255, 255, 0.322);
+                }
+            }
+
+            p {
+                margin-top: 2rem;
+                font-size: 1rem;
+                max-width: 400px;
+                color: $semi-white;
+            }
+
+            nav {
+                width: auto;
+
+                .nav {
+                    background-color: rgba(255, 255, 255, 0);
+
+                    li {
+                        margin: 0 2rem 0 0;
+                        height: 2.5rem;
+                        margin-top: 1rem;
+                        cursor: pointer;
+                        color: $semi-white;
+
+                        &.active-link {
+                            border-bottom: 1px solid white;
+                        }
+        
+                        a {
+                            
+                            text-decoration: none;
+                            span {
+                                font-weight: 500;
+                            }
+                        }
+                    }
+                }
+            }
+
+            img {
+                width: 400px;
+            }
+
+            .distantion {
+                div:first-child {
+                    margin-right: 3rem;
+                }
+
+                p {
+                    padding: 0;
+                    margin: 0;
+                }
+
+                .numbers {
+                    color: white;
+                    font-size: 1.5rem;
+                    font-weight: 200;
+                }
+            }
+        }
+    }
+}

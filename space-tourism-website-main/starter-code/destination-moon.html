@@ -5,33 +5,65 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
   <link rel="icon" type="image/png" sizes="32x32" href="./assets/favicon-32x32.png">
+  <link rel="stylesheet" type="text/css" href="css/main.css">
+  <link rel="stylesheet" type="text/css" href="css/destination.css">
+  <link rel="stylesheet" type="text/css" href="../../bootstrap-5.3.3-dist/css/bootstrap.min.css">
   
-  <title>Frontend Mentor | Space tourism website</title>
+  <title>Space tourism website</title>
 </head>
 <body>
 
-  00 Home
-  01 Destination
-  02 Crew
-  03 Technology
+  <header class="d-flex flex-row align-items-center">
+    <img src="assets/shared/logo.svg" alt="logo">
+    <div class="strip">
+    </div>
+    <nav>
+      <ul class="d-flex justify-content-center nav">
+        <li><a href="index.html"><span>00</span> Home</a></li>
+        <li class="active-link"><a href="destination-moon.html"><span>01</span> Destination</a></li>
+        <li><a href="crew-commander.html"><span>02</span> Crew</a></li>
+        <li><a href="technology-vehicle.html"><span>03</span> Technology</a></li>
+      </ul>
+    </nav>
+  </header>
 
-  01 Pick your destination
+  <main class="d-flex justify-content-around align-items-center">
+    <article class="d-flex align-items-center justify-content-center flex-column">
+      <h1><span>01</span> Pick your destination</h1>
+      <img src="assets/destination/image-moon.png" alt="moon" id="planet">
+    </article>
 
-  Moon
-  Mars
-  Europa
-  Titan
+    <article class="d-flex justify-content-around flex-column">
+      <nav>
+        <ul class="d-flex nav" id="planets">
+          <li class="active-link">Moon</li>
+          <li>Mars</li>
+          <li>Europa</li>
+          <li>Titan</li>
+        </ul>
+      </nav>
 
-  Moon
+      <h2 id="header">Moon</h2>
 
-  See our planet as you’ve never seen it before. A perfect relaxing trip away to help 
-  regain perspective and come back refreshed. While you’re there, take in some history 
-  by visiting the Luna 2 and Apollo 11 landing sites.
+      <p id="description">See our planet as you’ve never seen it before. A perfect relaxing trip away to help 
+      regain perspective and come back refreshed. While you’re there, take in some history 
+      by visiting the Luna 2 and Apollo 11 landing sites.</p>
+      
+      <div class="distantion d-flex flex-row">
+        <div class="d-flex flex-column">
+          <p>Avg. distance</p>
+          <p class="numbers" id="avg-distance">384,400 km</p>
+        </div>
 
-  Avg. distance
-  384,400 km
+        <div>
+          <p>Est. travel time</p>
+          <p class="numbers" id="travel-time">3 days</p>
+        </div>
+      </div>
+    </article>
+  </main>
 
-  Est. travel time
-  3 days
+  <script src="js/distination.js">
+  </script>
 </body>
 </html>

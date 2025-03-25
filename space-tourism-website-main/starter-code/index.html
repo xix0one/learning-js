@@ -5,23 +5,45 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
   <link rel="icon" type="image/png" sizes="32x32" href="./assets/favicon-32x32.png">
+  <link rel="stylesheet" type="text/css" href="css/main.css">
+  <link rel="stylesheet" type="text/css" href="css/home.css">
+  <link rel="stylesheet" type="text/css" href="../../bootstrap-5.3.3-dist/css/bootstrap.min.css">
   
-  <title>Frontend Mentor | Space tourism website</title>
+  <title>Space tourism website</title>
 </head>
-<body>
+<body class="text-light">
 
-  00 Home
-  01 Destination
-  02 Crew
-  03 Technology
+  <header class="d-flex flex-row align-items-center">
+    <img src="assets/shared/logo.svg" alt="logo">
+    <div class="strip">
+    </div>
+    <nav>
+      <ul class="d-flex justify-content-center nav">
+        <li class="active-link"><a href="index.html"><span>00</span> Home</a></li>
+        <li><a href="destination-moon.html"><span>01</span> Destination</a></li>
+        <li><a href="crew-commander.html"><span>02</span> Crew</a></li>
+        <li><a href="technology-vehicle.html"><span>03</span> Technology</a></li>
+      </ul>
+    </nav>
+  </header>
 
-  So, you want to travel to
-  Space
-  Let’s face it; if you want to go to space, you might as well genuinely go to 
-  outer space and not hover kind of on the edge of it. Well sit back, and relax 
-  because we’ll give you a truly out of this world experience!
+  <main class="d-flex justify-content-around align-items-center">
+    <article class="d-flex flex-column justify-content-around align-items-center">
+      <div>
+        <h3>So, you want to travel to</h3>
+        <h1>SPACE</h1>
+        <p>Let’s face it; if you want to go to space, you might as well genuinely go to 
+        outer space and not hover kind of on the edge of it. Well sit back, and relax 
+        because we’ll give you a truly out of this world experience!</p>
+      </div>
+    </article>
 
-  Explore
+    <article class="d-flex align-items-center justify-content-center">
+      <div class="d-flex align-items-center justify-content-center circle">
+        <h2>Explore</h2>
+      </div>
+    </article>
+  </main>
 
 </body>
 </html>

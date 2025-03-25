@@ -1,0 +1,81 @@
+body {
+  background-image: url(../assets/destination/background-destination-desktop.jpg);
+  color: white !important;
+}
+body main {
+  margin-top: 100px;
+}
+body main h1 {
+  font-size: 2rem;
+  font-weight: 200;
+}
+body main h2 {
+  font-size: 2rem;
+  font-weight: 200;
+}
+body main h3 {
+  font-weight: 200;
+}
+body main article {
+  flex: 1;
+  text-align: justify;
+}
+body main article h1 {
+  font-size: 2rem;
+  margin-bottom: 3rem;
+}
+body main article h1 span {
+  color: rgba(207, 224, 255, 0.61);
+}
+body main article h2 {
+  font-size: 6rem;
+}
+body main article h2 + p {
+  padding-bottom: 2rem;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.322);
+}
+body main article p {
+  margin-top: 2rem;
+  font-size: 1rem;
+  max-width: 400px;
+  color: rgba(207, 224, 255, 0.61);
+}
+body main article nav {
+  width: auto;
+}
+body main article nav .nav {
+  background-color: rgba(255, 255, 255, 0);
+}
+body main article nav .nav li {
+  margin: 0 2rem 0 0;
+  height: 2.5rem;
+  margin-top: 1rem;
+  cursor: pointer;
+  color: rgba(207, 224, 255, 0.61);
+}
+body main article nav .nav li.active-link {
+  border-bottom: 1px solid white;
+}
+body main article nav .nav li a {
+  text-decoration: none;
+}
+body main article nav .nav li a span {
+  font-weight: 500;
+}
+body main article img {
+  width: 400px;
+}
+body main article .distantion div:first-child {
+  margin-right: 3rem;
+}
+body main article .distantion p {
+  padding: 0;
+  margin: 0;
+}
+body main article .distantion .numbers {
+  color: white;
+  font-size: 1.5rem;
+  font-weight: 200;
+}
+
+/*# sourceMappingURL=destination.css.map */

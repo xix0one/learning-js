@@ -1,0 +1,79 @@
+$semi-white: rgba(207, 224, 255, 0.61);
+
+body {
+    background-image: url(../assets/crew/background-crew-desktop.jpg);
+    color: white !important;
+
+    main {
+        margin-top: 100px;
+        .divWidth {
+            width: 500px;
+        }
+
+        h1 {
+            font-size: 2rem;
+            font-weight: 200;
+        }
+    
+        h2 {
+            font-size: 2rem;
+            font-weight: 200;
+            margin-bottom: 7rem;
+            span {
+                color: $semi-white;
+            }
+        }
+    
+        h3 {
+            font-weight: 200;
+            color: $semi-white
+        }
+
+        article {
+            flex: 1;
+            text-align: justify;
+
+            h1 {
+                font-size: 4rem;
+                margin-bottom: 2rem;
+            }
+
+            p {
+                margin-top: 2rem;
+                font-size: 1rem;
+                max-width: 400px;
+                color: $semi-white;
+            }
+
+            #description {
+                height: 150px;
+            }
+
+            .naviga {
+                p {
+                    width: 20px;
+                    height: 20px;
+                    border-radius: 50%;
+                    background-color: $semi-white;
+                    margin-right: 2rem;
+                    cursor: pointer;
+
+                    &.active {
+                        background-color: white;
+                    }
+                }
+            }
+        }
+
+        div {
+            flex: 1;
+
+            img {
+                position: fixed;
+                bottom: 0;
+                max-height: 70vh; 
+                width: auto;
+            }
+        }
+    }
+}

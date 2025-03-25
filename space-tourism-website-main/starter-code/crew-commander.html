@@ -5,23 +5,55 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
   <link rel="icon" type="image/png" sizes="32x32" href="./assets/favicon-32x32.png">
+  <link rel="stylesheet" type="text/css" href="css/main.css">
+  <link rel="stylesheet" type="text/css" href="css/crew.css">
+  <link rel="stylesheet" type="text/css" href="../../bootstrap-5.3.3-dist/css/bootstrap.min.css">
   
-  <title>Frontend Mentor | Space tourism website</title>
+  <title>Space tourism website</title>
 </head>
 <body>
 
-  00 Home
-  01 Destination
-  02 Crew
-  03 Technology
+  <header class="d-flex flex-row align-items-center">
+    <img src="assets/shared/logo.svg" alt="logo">
+    <div class="strip">
+    </div>
+    <nav>
+      <ul class="d-flex justify-content-center nav">
+        <li><a href="index.html"><span>00</span> Home</a></li>
+        <li><a href="destination-moon.html"><span>01</span> Destination</a></li>
+        <li class="active-link"><a href="crew-commander.html"><span>02</span> Crew</a></li>
+        <li><a href="technology-vehicle.html"><span>03</span> Technology</a></li>
+      </ul>
+    </nav>
+  </header>
 
-  02 Meet your crew
+  <main class="d-flex flex-row">
+    <article class="d-flex align-items-center flex-column">
+      <div class="divWidth">
+        <h2><span>02</span> Meet your crew</h2>
 
-  Commander
-  Douglas Hurley
+        <h3 id="profName">Commander</h3>
+        <h1 id="name">Douglas Hurley</h1>
 
-  Douglas Gerald Hurley is an American engineer, former Marine Corps pilot 
-  and former NASA astronaut. He launched into space for the third time as 
-  commander of Crew Dragon Demo-2.
+        <p id="description">Douglas Gerald Hurley is an American engineer, former Marine Corps pilot 
+        and former NASA astronaut. He launched into space for the third time as 
+        commander of Crew Dragon Demo-2.</p>
+
+        <div class="naviga d-flex flex-row" id="naviga">
+          <p class="active"></p>
+          <p></p>
+          <p></p>
+          <p></p>
+        </div>
+      </div>
+
+    </article>
+
+    <div class="d-flex align-items-center justify-content-center">
+      <img src="assets/crew/image-douglas-hurley.png" alt="douglas-hurley" id="photo">
+    </div>
+  </main>
+
+  <script src="js/crew.js"></script>
 </body>
 </html>
