@@ -78,4 +78,49 @@ body main article .distantion .numbers {
   font-weight: 200;
 }
 
+@media screen and (max-width: 840px) {
+  body {
+    background-image: url(../assets/destination/background-destination-tablet.jpg);
+  }
+  main {
+    margin-top: 3rem !important;
+    flex-direction: column !important;
+  }
+  main article {
+    text-align: center !important;
+    justify-content: center !important;
+  }
+  main article p {
+    max-width: 600px;
+    margin-bottom: 5rem;
+  }
+  main article img {
+    width: 300px !important;
+    margin-bottom: 2rem;
+  }
+  main article nav {
+    align-self: center;
+  }
+  main article nav li {
+    margin: 0 1rem !important;
+  }
+  main article #description {
+    margin-bottom: 1rem;
+  }
+  main article .distantion {
+    justify-content: center;
+  }
+}
+@media screen and (max-width: 450px) {
+  body {
+    background-image: url(../assets/destination/background-destination-mobile.jpg);
+  }
+  body main article h2 {
+    font-size: 3rem;
+  }
+  body main article img {
+    width: 200px !important;
+  }
+}
+
 /*# sourceMappingURL=destination.css.map */

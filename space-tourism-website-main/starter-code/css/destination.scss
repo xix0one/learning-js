@@ -99,3 +99,61 @@ body {
         }
     }
 }
+
+@media screen and (max-width: 840px) {
+    body {
+        background-image: url(../assets/destination/background-destination-tablet.jpg);
+    }
+
+    main {
+        margin-top: 3rem !important;
+        flex-direction: column !important;
+
+        article {
+            text-align: center !important;
+            justify-content: center !important;
+
+            p {
+                max-width: 600px;
+                margin-bottom: 5rem;
+            }
+
+            img {
+                width: 300px !important;
+                margin-bottom: 2rem;
+            }
+
+            nav {
+                align-self: center;
+
+                li {
+                    margin: 0 1rem !important;
+                }
+            }
+
+            #description {
+                margin-bottom: 1rem;
+            }
+
+            .distantion {
+                justify-content: center;
+            }
+        }
+    }
+}
+
+@media screen and (max-width: 450px) {
+    body {
+        background-image: url(../assets/destination/background-destination-mobile.jpg);
+        main {
+            article {
+                h2 {
+                    font-size: 3rem;
+                }
+                img {
+                    width: 200px !important;
+                }
+            }
+        }
+    }
+}

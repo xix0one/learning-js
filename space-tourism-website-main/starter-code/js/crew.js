@@ -2,7 +2,6 @@
 
 let naviga = document.querySelectorAll("#naviga p");
 let description = document.getElementById("description");
-let profName = document.getElementById("profName");
 let name = document.getElementById("name");
 let photo = document.getElementById("photo");
 

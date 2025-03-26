@@ -1,0 +1,101 @@
+body {
+  background-image: url(../assets/technology/background-technology-desktop.jpg);
+  color: white !important;
+}
+body main {
+  margin-top: 100px;
+}
+body main .divWidth {
+  width: 500px;
+}
+body main h1 {
+  font-size: 2rem;
+  font-weight: 200;
+}
+body main h2 {
+  font-size: 2rem;
+  font-weight: 200;
+  margin-bottom: 7rem;
+}
+body main h2 span {
+  color: rgba(207, 224, 255, 0.61);
+}
+body main h3 {
+  font-weight: 200;
+  color: rgba(207, 224, 255, 0.61);
+}
+body main article {
+  text-align: justify;
+}
+body main article h1 {
+  font-size: 4rem;
+  margin-bottom: 2rem;
+}
+body main article p {
+  margin-top: 2rem;
+  font-size: 1rem;
+  color: rgba(207, 224, 255, 0.61);
+  max-width: 450px;
+}
+body main article .naviga {
+  margin-right: 4rem;
+}
+body main article .naviga div {
+  border: 1px solid white;
+  color: white;
+  width: 70px;
+  height: 70px;
+  border-radius: 50%;
+  margin-bottom: 2rem;
+  cursor: pointer;
+  font-size: 2rem;
+  font-weight: 200;
+}
+body main article .naviga div.active {
+  color: black;
+  background-color: white;
+}
+
+@media screen and (max-width: 840px) {
+  body {
+    background-image: url(../assets/technology/background-technology-tablet.jpg);
+    padding-bottom: 0;
+  }
+  body main#pos {
+    margin-top: 3rem !important;
+    flex-direction: column !important;
+  }
+  body main#pos article {
+    flex-direction: column !important;
+  }
+  body main#pos article .naviga {
+    flex-direction: row !important;
+    margin-right: 0;
+  }
+  body main#pos article .naviga div {
+    margin: 0 1rem;
+    margin-bottom: 1rem;
+  }
+  body main#pos article div h2 {
+    margin-bottom: 1rem;
+  }
+  body main#pos div {
+    text-align: center;
+  }
+  body main#pos div img {
+    width: 400px;
+  }
+}
+@media screen and (max-width: 450px) {
+  body {
+    background-image: url(../assets/technology/background-technology-mobile.jpg);
+  }
+  body main#pos div img {
+    width: 300px;
+  }
+  body main#pos article h1 {
+    font-size: 2.5rem;
+  }
+}
+
+/*# sourceMappingURL=tech.css.map */

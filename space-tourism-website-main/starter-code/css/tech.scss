@@ -1,0 +1,125 @@
+$semi-white: rgba(207, 224, 255, 0.61);
+
+body {
+    background-image: url(../assets/technology/background-technology-desktop.jpg);
+    color: white !important;
+
+    main {
+        margin-top: 100px;
+        .divWidth {
+            width: 500px;
+        }
+
+        h1 {
+            font-size: 2rem;
+            font-weight: 200;
+        }
+    
+        h2 {
+            font-size: 2rem;
+            font-weight: 200;
+            margin-bottom: 7rem;
+            span {
+                color: $semi-white;
+            }
+        }
+    
+        h3 {
+            font-weight: 200;
+            color: $semi-white
+        }
+
+        article {
+            text-align: justify;
+
+            h1 {
+                font-size: 4rem;
+                margin-bottom: 2rem;
+            }
+
+            p {
+                margin-top: 2rem;
+                font-size: 1rem;
+                color: $semi-white;
+                max-width: 450px;
+            }
+
+            .naviga {
+                margin-right: 4rem;
+                
+                div {
+                    border: 1px solid white;
+                    color: white;
+                    width: 70px;
+                    height: 70px;
+                    border-radius: 50%;
+                    margin-bottom: 2rem;
+                    cursor: pointer;
+                    font-size: 2rem;
+                    font-weight: 200;
+
+                    &.active {
+                        color: black;
+                        background-color: white;
+                    }
+                }
+            }
+        }
+    }
+}
+
+@media screen and (max-width: 840px) {
+    body {
+        background-image: url(../assets/technology/background-technology-tablet.jpg);
+        padding-bottom: 0;
+
+        main#pos {
+            margin-top: 3rem !important;
+            flex-direction: column !important;
+
+            article {
+                flex-direction: column !important;
+
+                .naviga {
+                    flex-direction: row !important;
+                    margin-right: 0;
+                    div {
+                        margin: 0 1rem;
+                        margin-bottom: 1rem;
+                    }
+                }
+
+                div {
+                    h2 {
+                        margin-bottom: 1rem;
+                    }
+                }
+            }
+
+            div {
+                text-align: center;
+                img {
+                    width: 400px;
+                }
+            }
+        }
+    }
+}
+
+@media screen and (max-width: 450px) {
+    body {
+        background-image: url(../assets/technology/background-technology-mobile.jpg);
+        main#pos {
+            div {
+                img {
+                    width: 300px;
+                }
+            }
+            article {
+                h1 {
+                    font-size: 2.5rem;
+                }
+            }
+        }
+    }
+}

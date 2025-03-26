@@ -15,8 +15,10 @@
 
   <header class="d-flex flex-row align-items-center">
     <img src="assets/shared/logo.svg" alt="logo">
+
     <div class="strip">
     </div>
+
     <nav>
       <ul class="d-flex justify-content-center nav">
         <li class="active-link"><a href="index.html"><span>00</span> Home</a></li>
@@ -25,6 +27,23 @@
         <li><a href="technology-vehicle.html"><span>03</span> Technology</a></li>
       </ul>
     </nav>
+
+    <div class="curtain">
+      <span data-bs-toggle="offcanvas" data-bs-target="#offcanvasExample" role="button" aria-controls="offcanvasExample">
+        <img src="assets/shared/icon-hamburger.svg" alt="icon-menu">
+      </span>
+    </div>
+    <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasExample">
+      <div class="offcanvas-body">
+        <img src="assets/shared/icon-close.svg" alt="icon-close" class="btn-close" data-bs-dismiss="offcanvas">
+        <a href="index.html" class="nav-link"><span>00</span> Home</a></li>
+        <a href="destination-moon.html" class="nav-link"><span>01</span> Destination</a>
+        <a href="crew-commander.html" class="nav-link"><span>02</span> Crew</a>
+        <a href="technology-vehicle.html" class="nav-link"><span>03</span> Technology</a>
+      </div>
+
+    </div>
+  
   </header>
 
   <main class="d-flex justify-content-around align-items-center">
@@ -39,11 +58,14 @@
     </article>
 
     <article class="d-flex align-items-center justify-content-center">
-      <div class="d-flex align-items-center justify-content-center circle">
-        <h2>Explore</h2>
-      </div>
+      <a href="destination-moon.html">
+        <div class="d-flex align-items-center justify-content-center circle">
+          <h2>Explore</h2>
+        </div>
+      </a>
     </article>
   </main>
 
+  <script src="../../bootstrap-5.3.3-dist/js/bootstrap.min.js"></script>
 </body>
 </html>

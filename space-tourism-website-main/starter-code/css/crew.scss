@@ -77,3 +77,77 @@ body {
         }
     }
 }
+
+@media screen and (max-width: 840px) {
+    body {
+        background-image: url(../assets/crew/background-crew-tablet.jpg);
+        padding-bottom: 0;
+        
+        main#pos {
+            margin-top: 3rem;
+            flex-direction: column !important;
+    
+            article {
+                text-align: center;
+
+                h1 {
+                    margin-bottom: 1rem;
+                }
+    
+                p {
+                    max-width: 400px;
+                    margin-bottom: 3rem;
+                }
+
+                #description {
+                    margin-top: 1rem;
+                    height: auto;
+                }
+
+                .divWidth {
+                    display: flex;
+                    flex-direction: column;
+                    justify-content: center;
+                    align-items: center;
+                    margin-bottom: 2rem;
+                    width: auto;
+
+                    h2 {
+                        margin-bottom: 1rem;
+                    }
+
+                    .naviga {
+                        justify-content: center;
+                        align-items: center;
+                        p {
+                            margin: 0 1rem;
+                        }
+                    }
+                }
+            }
+    
+            div {
+                flex: 1;                
+                img {
+                    position: relative !important;
+                    width: 300px !important;
+                    max-height: none;
+                }
+            }
+        }
+    }
+}
+
+@media screen and (max-width: 450px) {
+    body {
+        background-image: url(../assets/crew/background-crew-mobile.jpg);
+
+        main#pos {
+            article {
+                h1 {
+                    font-size: 3rem;
+                }
+            }
+        }
+    }
+}

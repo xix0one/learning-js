@@ -28,12 +28,50 @@ main article p {
   align-self: center;
   color: rgba(207, 224, 255, 0.61);
 }
+main article a {
+  text-decoration: none;
+}
 main .circle {
   background-color: white;
   color: black;
   border-radius: 50%;
-  width: 200px;
-  height: 200px;
+  width: 300px;
+  height: 300px;
+}
+main .circle h2 {
+  font-size: 3rem;
+}
+
+@media screen and (max-width: 840px) {
+  body {
+    background-image: url(../assets/home/background-home-tablet.jpg);
+  }
+  main {
+    margin-top: 100px;
+    flex-direction: column !important;
+  }
+  main article {
+    text-align: center;
+  }
+  main article p {
+    max-width: 600px;
+    margin-bottom: 5rem;
+  }
+}
+@media screen and (max-width: 450px) {
+  body {
+    background-image: url(../assets/home/background-home-mobile.jpg);
+  }
+  body main h1 {
+    font-size: 5rem;
+  }
+  body main article p {
+    width: 300px;
+  }
+  body main .circle {
+    height: 200px;
+    width: 200px;
+  }
 }
 
 /*# sourceMappingURL=home.css.map */

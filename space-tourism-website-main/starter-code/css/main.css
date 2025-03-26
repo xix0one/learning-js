@@ -1,13 +1,17 @@
 body {
   background-color: black !important;
   background-repeat: no-repeat;
-  background-size: 100% 100vh;
   padding: 2rem;
+  background-size: cover;
+  min-height: 100vh;
+}
+body .curtain {
+  display: none;
 }
 body header div.strip {
   height: 1px;
   border-bottom: 1px solid rgba(255, 255, 255, 0.322);
-  width: 100%;
+  width: 40%;
   margin-left: 1rem;
   position: relative;
   left: 1rem;
@@ -32,6 +36,37 @@ body nav .nav li a {
 }
 body nav .nav li a span {
   font-weight: 500;
+}
+
+@media screen and (max-width: 945px) {
+  div.strip {
+    width: 0% !important;
+  }
+}
+@media screen and (max-width: 450px) {
+  div.strip {
+    width: 0% !important;
+  }
+  body header .curtain {
+    display: block;
+    margin-left: auto;
+  }
+  body header .curtain span img {
+    width: 35px;
+  }
+  body header nav {
+    display: none !important;
+  }
+  body header .offcanvas-body {
+    background-color: black;
+    color: white;
+    font-size: 2rem;
+  }
+  body header .offcanvas-body img {
+    display: block;
+    margin-top: 1rem;
+    margin-left: auto;
+  }
 }
 
 /*# sourceMappingURL=main.css.map */

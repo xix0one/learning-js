@@ -62,4 +62,63 @@ body main div img {
   width: auto;
 }
 
+@media screen and (max-width: 840px) {
+  body {
+    background-image: url(../assets/crew/background-crew-tablet.jpg);
+    padding-bottom: 0;
+  }
+  body main#pos {
+    margin-top: 3rem;
+    flex-direction: column !important;
+  }
+  body main#pos article {
+    text-align: center;
+  }
+  body main#pos article h1 {
+    margin-bottom: 1rem;
+  }
+  body main#pos article p {
+    max-width: 400px;
+    margin-bottom: 3rem;
+  }
+  body main#pos article #description {
+    margin-top: 1rem;
+    height: auto;
+  }
+  body main#pos article .divWidth {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 2rem;
+    width: auto;
+  }
+  body main#pos article .divWidth h2 {
+    margin-bottom: 1rem;
+  }
+  body main#pos article .divWidth .naviga {
+    justify-content: center;
+    align-items: center;
+  }
+  body main#pos article .divWidth .naviga p {
+    margin: 0 1rem;
+  }
+  body main#pos div {
+    flex: 1;
+  }
+  body main#pos div img {
+    position: relative !important;
+    width: 300px !important;
+    max-height: none;
+  }
+}
+@media screen and (max-width: 450px) {
+  body {
+    background-image: url(../assets/crew/background-crew-mobile.jpg);
+  }
+  body main#pos article h1 {
+    font-size: 3rem;
+  }
+}
+
 /*# sourceMappingURL=crew.css.map */
