@@ -17,7 +17,6 @@ body main .window {
   grid-template-columns: repeat(12, 1fr);
 }
 body main .window div {
-  width: 13.3666666667;
   height: 30px;
   border: 1px solid black;
   background-color: black;
@@ -38,6 +37,12 @@ body main .footer .control {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   gap: 2px;
+}
+body main .footer .control .left, body main .footer .control .down, body main .footer .control .right {
+  grid-row: 2;
+}
+body main .footer .control .trn-right {
+  grid-column: 3;
 }
 body main .footer button {
   cursor: pointer;

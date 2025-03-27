@@ -12,12 +12,10 @@ body {
             margin-top: 2rem;
             font-size: 1.5rem;
             color: white;
-
         }
 
         .window {
             div {
-                width: $widthMainWindow / 30px;
                 height: 30px;
                 border: 1px solid black;
                 background-color: black;
@@ -44,6 +42,14 @@ body {
                 display: grid;
                 grid-template-columns: repeat(3, 1fr);
                 gap: 2px;
+
+                .left, .down, .right {
+                    grid-row: 2;
+                }
+
+                .trn-right {
+                    grid-column: 3;
+                }
             }
 
             button {
