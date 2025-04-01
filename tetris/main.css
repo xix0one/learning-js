@@ -13,20 +13,9 @@ body main .header {
 }
 body main .window {
   border: 3px solid black;
-  display: grid;
-  grid-template-columns: repeat(12, 1fr);
-}
-body main .window div {
-  height: 30px;
-  border: 1px solid black;
+  width: 400px;
+  height: 600px;
   background-color: black;
-}
-body main .window div.color {
-  background-color: rgb(68, 61, 61);
-  box-shadow: 4px 4px 0px 0px rgba(255, 255, 255, 0.2) inset;
-}
-body main .window .block {
-  background-color: green;
 }
 body main .footer {
   margin-top: 1rem;
@@ -38,11 +27,11 @@ body main .footer .control {
   grid-template-columns: repeat(3, 1fr);
   gap: 2px;
 }
+body main .footer .control .trn-left {
+  grid-column: 2;
+}
 body main .footer .control .left, body main .footer .control .down, body main .footer .control .right {
   grid-row: 2;
-}
-body main .footer .control .trn-right {
-  grid-column: 3;
 }
 body main .footer button {
   cursor: pointer;
