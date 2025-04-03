@@ -1,4 +1,4 @@
-$widthMainWindow: 401px;
+$widthMainWindow: 300px;
 
 body {
     background: rgb(102,91,218);
@@ -12,6 +12,15 @@ body {
             margin-top: 2rem;
             font-size: 1.5rem;
             color: white;
+
+            display: flex;
+            flex-direction: row;
+            justify-content: space-between;
+
+            .lose {
+                color: red;
+                display: none;
+            }
         }
 
         .window {
@@ -27,7 +36,6 @@ body {
                 margin-left: auto;
                 display: grid;
                 grid-template-columns: repeat(3, 1fr);
-                gap: 2px;
 
                 .trn-left {
                     grid-column: 2;
@@ -40,8 +48,9 @@ body {
 
             button {
                 cursor: pointer;
-                background-color: black;
-                color: white;
+                background-color: rgb(158, 196, 23);
+                border-radius: 40px;
+                color: black;
                 height: 30px;
                 width: 60px;
                 margin-bottom: .3rem;

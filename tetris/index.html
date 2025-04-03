@@ -11,7 +11,8 @@
     <main>
 
         <div class="header">
-            <span>SCORE <span>0</span></span>
+            <span>SCORE <span id="score">0</span></span>
+            <span class="lose" id="lose">YOU LOSE</span>
         </div>
 
         <canvas class="window" id="mainWindow">
@@ -19,9 +20,9 @@
 
         <div class="footer">
             <div class="play">
-                <button>START</button>
-                <button>STOP</button>
-                <button class="restart">RESTART</button>
+                <button id="start">START</button>
+                <button id="stop">STOP</button>
+                <button class="restart" id="restart">RESTART</button>
             </div>
             <div class="control">
                 <button class="trn-left" id="rotation">rotation</button>
