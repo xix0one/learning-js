@@ -6,55 +6,81 @@ body {
 
     main {
         margin: auto;
-        width: $widthMainWindow;
+        width: 500px;
 
-        .header {
-            margin-top: 2rem;
-            font-size: 1.5rem;
-            color: white;
-
+        .main {
             display: flex;
             flex-direction: row;
-            justify-content: space-between;
 
-            .lose {
-                color: red;
-                display: none;
+            .info {
+                background-color: black;
+                border-left: 2px solid white;
+                width: 150px;
+
+                .header {
+                    margin-left: 1rem;
+                    margin-top: 2rem;
+                    font-size: 1.5rem;
+                    color: white;
+        
+                    .lose {
+                        color: red;
+                        display: none;
+                    }
+        
+                    .windowInfo {
+                        border: 1px solid white;
+                        height: 60px;
+                        width: 116px;
+                    }
+
+                    p:nth-child(2) {
+                        margin-bottom: 0;
+                    }
+                }        
             }
         }
 
         .window {
             border: 3px solid black;
             background-color: black;
+            width: $widthMainWindow;
         }
+    }
 
-        .footer {
-            margin-top: 1rem;
-            display: flex;
+    .footer {
+        margin: auto;
+        width: 400px;
+        margin-top: 1rem;
+        display: flex;
 
-            .control {
-                margin-left: auto;
-                display: grid;
-                grid-template-columns: repeat(3, 1fr);
+        .control {
+            margin-left: auto;
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
 
-                .trn-left {
-                    grid-column: 2;
-                }
-
-                .left, .down, .right {
-                    grid-row: 2;
-                }
+            .trn-left {
+                grid-column: 2;
             }
 
-            button {
-                cursor: pointer;
-                background-color: rgb(158, 196, 23);
-                border-radius: 40px;
-                color: black;
-                height: 30px;
-                width: 60px;
-                margin-bottom: .3rem;
-                font-size: .6rem;
+            .left, .down, .right {
+                grid-row: 2;
+            }
+        }
+
+        button {
+            cursor: pointer;
+            background-color: rgb(0, 0, 0);
+            border: 1px solid black;
+            border-radius: 50%;
+            color: white;
+            height: 60px;
+            width: 60px;
+            margin: 0 .1rem .1rem 0;
+            font-size: .6rem;
+
+            &:active {
+                border-color: white;
             }
         }
     }

@@ -16,6 +16,10 @@ let stop = document.getElementById("stop");
 let restart = document.getElementById("restart");
 let scoreSpan = document.getElementById("score");
 let score = 0;
+let nextShape = null; 
+
+let info = document.getElementById("windowInfo");
+let ctxInfo = info.getContext("2d");
 
 let canvas = document.getElementById("mainWindow");
 let ctx = canvas.getContext("2d");
@@ -283,9 +287,35 @@ function drawFake() {
     }
 }
 
+function getNext() {
+    nextShape = shapes[getRandomInt(7)];
+}
+
+function drawNext() {
+    ctxInfo.clearRect(0, 0, info.width, info.height);
+    let nshape = nextShape;
+
+    nshape.x = 2;
+    nshape.y = 1;
+
+    let block = 40;
+    for (let y = 0; y < nshape.shape.length; ++y) {
+        for (let x = 0; x < nshape.shape[y].length; ++x) {
+            if (nshape.shape[y][x]) {
+                ctxInfo.fillStyle = nshape.color;
+                ctxInfo.fillRect(
+                    (nshape.x + x) * block,
+                    (nshape.y + y) * block,  
+                    block,             
+                    block
+                );
+            }
+        }
+    }
+}
+
 function draw() {
     if (pause) return;
-    
     drawGrid();
     currentShape.drawShape();
     drawFake();
@@ -295,9 +325,9 @@ function draw() {
     
     if (currentShape.y > (20 - currentShape.shape.length) || collision(currentShape.x, currentShape.y, currentShape.shape)) {
             currentShape.lockShape();
-            currentShape = shapes[getRandomInt(7)];
-            currentShape.y = 0;
-            currentShape.x = 4;
+            currentShape = nextShape;
+            getNext();
+            drawNext();
             defauleShapes();
     }
 }
@@ -325,6 +355,8 @@ function gameLoop() {
     start.removeEventListener("click", gameLoop);
     restart.addEventListener("click", restartFunc);
     currentShape = shapes[getRandomInt(7)];
+    getNext();
+    drawNext();
     interval = setInterval(draw, SPEED);
 }
 
@@ -350,6 +382,7 @@ function restartFunc() {
     field = [];
     currentShape = null;
     score = 0;
+    scoreSpan.textContent = score;
     pause = false;
     clearInterval(interval);
     interval = null;
