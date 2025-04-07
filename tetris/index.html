@@ -7,44 +7,26 @@
     <link rel="stylesheet" type="text/css" href="main.css">
 </head>
 <body>
-
     <main>
+        <div>
+            <form>
+                <label for="games">choose game: </label>
+                <select id="games" name="games">
+                <option value="tetris">tetris</option>
+                <option value="race">race</option>
+                <option value="snake">snake</option>
+                </select>
+                
+            </form>
 
-        <div class="main">
-
-            <canvas class="window" id="mainWindow">
-            </canvas>
-
-            <div class="info">
-                <div class="header">
-                    <p id="homeInfo">SCORE <span id="score">0</span></p>
-
-                    <p id="next">NEXT</p>
-                    <canvas class="windowInfo" id="windowInfo">
-                    </canvas>
-
-                    <p class="lose" id="lose">YOU LOSE</p>
-                </div>
-            </div>
+            <button id="start">start</button>
+            <button id="exit">exit</button>
         </div>
 
+        <iframe id="game-frame">
+
+        </iframe>
     </main>
-
-    <div class="footer">
-        <div class="control">
-            <button class="trn-left" id="rotation">rotation</button>
-            <button class="left" id="left">LEFT</button>
-            <button class="down" id="down">DOWN</button>
-            <button class="right" id="right">RIGHT</button>
-        </div>
-        <div class="play">
-            <button id="start">START</button>
-            <button id="stop">STOP</button>
-            <button class="restart" id="restart">RESTART</button>
-        </div>
-    </div>
-
-    <!-- <script src="home.js"></script> -->
-    <script src="tetris.js"></script>
+    <script src="home.js"></script>
 </body>
 </html>

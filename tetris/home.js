@@ -1,17 +1,23 @@
 "use strict";
 
-let homeInfo = document.getElementById("homeInfo");
-let windowInfo = document.getElementById("windowInfo");
-let next = document.getElementById("next");
-let startGame = document.getElementById("start");
+let start = document.getElementById("start");
+let exit = document.getElementById("exit");
+let frame = document.getElementById("game-frame");
+let form = document.getElementById("games");
 
-next.style.display = "none";
-windowInfo.style.display = "none";
-homeInfo.textContent = "use left, right and start for choose game";
+let currentGame = null;
 
-startGame.addEventListener("click", function() {
-    let script = document.createElement('script');
-    script.src = "tetris.js";
-    script.async = false;
-    document.body.appendChild(script);
-});
+function closeGame() {
+    currentGame = null;
+    frame.src = "";
+    frame.style.height = "auto";
+}
+
+function loadGame() {
+    currentGame = form.value;
+    frame.style.height = "800px";
+    frame.src = currentGame + "/" + currentGame + ".html";
+}
+
+start.addEventListener("click", loadGame);
+exit.addEventListener("click", closeGame);

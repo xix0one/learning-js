@@ -3,71 +3,25 @@ body {
   background: linear-gradient(90deg, rgb(102, 91, 218) 0%, rgb(54, 100, 184) 44%, rgb(47, 40, 130) 100%);
 }
 body main {
+  width: 600px;
   margin: auto;
-  width: 500px;
+  display: flex;
+  flex-direction: column;
 }
-body main .main {
+body main iframe {
+  width: 450px;
+  background-color: black;
+}
+body main div {
   display: flex;
   flex-direction: row;
-}
-body main .main .info {
-  background-color: black;
-  border-left: 2px solid white;
-  width: 150px;
-}
-body main .main .info .header {
-  margin-left: 1rem;
-  margin-top: 2rem;
-  font-size: 1.5rem;
+  align-items: center;
   color: white;
+  margin-bottom: 1rem;
 }
-body main .main .info .header .lose {
-  color: red;
-  display: none;
-}
-body main .main .info .header .windowInfo {
-  border: 1px solid white;
-  height: 60px;
-  width: 116px;
-}
-body main .main .info .header p:nth-child(2) {
-  margin-bottom: 0;
-}
-body main .window {
-  border: 3px solid black;
-  background-color: black;
-  width: 300px;
-}
-body .footer {
-  margin: auto;
-  width: 400px;
-  margin-top: 1rem;
-  display: flex;
-}
-body .footer .control {
-  margin-left: auto;
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-}
-body .footer .control .trn-left {
-  grid-column: 2;
-}
-body .footer .control .left, body .footer .control .down, body .footer .control .right {
-  grid-row: 2;
-}
-body .footer button {
-  cursor: pointer;
-  background-color: rgb(0, 0, 0);
-  border: 1px solid black;
-  border-radius: 50%;
-  color: white;
-  height: 60px;
+body main div button {
   width: 60px;
-  margin: 0 0.1rem 0.1rem 0;
-  font-size: 0.6rem;
-}
-body .footer button:active {
-  border-color: white;
+  margin-left: 1rem;
 }
 
 /*# sourceMappingURL=main.css.map */

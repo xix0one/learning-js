@@ -1,0 +1,40 @@
+body {
+  margin: 0;
+  background: black;
+  color: white;
+}
+body main {
+  width: 450px;
+  margin: auto;
+}
+body main .window {
+  width: 300px;
+  height: 600px;
+}
+body main .main {
+  display: flex;
+  flex-direction: row;
+}
+body main .main .info {
+  border-left: 2px solid white;
+  width: 150px;
+}
+body main .main .info p {
+  margin: 1rem 10px;
+}
+body main .main .info p#lose {
+  color: red;
+}
+body .line {
+  background-color: white;
+  width: 100%;
+  height: 2px;
+}
+body .footer {
+  margin: auto;
+  width: 400px;
+  margin-top: 1rem;
+  display: flex;
+}
+
+/*# sourceMappingURL=main.css.map */

@@ -11,12 +11,11 @@ let right = document.getElementById("right");
 let rotation = document.getElementById("rotation");
 let down = document.getElementById("down");
 let lose = document.getElementById("lose");
-let start = document.getElementById("start");
 let stop = document.getElementById("stop");
 let restart = document.getElementById("restart");
-let scoreSpan = document.getElementById("score");
 let score = 0;
-let nextShape = null; 
+let nextShape = null;
+let idScore = document.getElementById("score");
 
 let info = document.getElementById("windowInfo");
 let ctxInfo = info.getContext("2d");
@@ -253,7 +252,7 @@ function checkWin() {
         }
         if (match == 10) {
             score += 10;
-            scoreSpan.textContent = score;
+            idScore.textContent = score;
             clearWin(y);
         }
         match = 0;
@@ -352,7 +351,6 @@ function buttonEvents(e) {
 function gameLoop() {
     defauleShapes();
     addEvents();
-    start.removeEventListener("click", gameLoop);
     restart.addEventListener("click", restartFunc);
     currentShape = shapes[getRandomInt(7)];
     getNext();
@@ -371,7 +369,7 @@ function stopfun() {
     }
 }
 
-start.addEventListener("click", gameLoop);
+gameLoop();
 
 function restartFunc() {
     removeEvents();
@@ -382,7 +380,7 @@ function restartFunc() {
     field = [];
     currentShape = null;
     score = 0;
-    scoreSpan.textContent = score;
+    idScore.textContent = score;
     pause = false;
     clearInterval(interval);
     interval = null;
@@ -396,5 +394,6 @@ function restartFunc() {
         field.push(row);
     }
 
+    defauleShapes();
     gameLoop();
 }

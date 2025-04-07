@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>rc</title>
+    <link rel="stylesheet" type="text/css" href="main.css">
+</head>
+<body>
+
+    <main>
+        <div class="main">
+            <canvas class="window" id="mainWindow">
+            </canvas>
+            <div class="info">
+                <div class="header">
+                    <p id="homeInfo">SCORE <span id="score">0</span></p>
+                    <p>use buttons or WASD</p>
+                    <p class="lose" id="lose">YOU LOSE</p>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <div class="line"></div>
+
+    <div class="footer">
+        <div class="control">
+            <button class="left" id="left">LEFT</button>
+            <button class="right" id="right">RIGHT</button>
+        </div>
+
+        <div class="play">
+            <button id="stop">STOP</button>
+            <button class="restart" id="restart">RESTART</button>
+        </div>
+    </div>
+    
+    <script src="race.js"></script>
+</body>
+</html>
