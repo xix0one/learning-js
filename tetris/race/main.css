@@ -9,7 +9,7 @@ body main {
 }
 body main .window {
   width: 300px;
-  height: 600px;
+  height: 400px;
 }
 body main .main {
   display: flex;
@@ -18,6 +18,9 @@ body main .main {
 body main .main .info {
   border-left: 2px solid white;
   width: 150px;
+}
+body main .main .info .header .lose {
+  display: none;
 }
 body main .main .info p {
   margin: 1rem 10px;
@@ -35,6 +38,25 @@ body .footer {
   width: 400px;
   margin-top: 1rem;
   display: flex;
+}
+body .footer .control {
+  margin-left: 3rem;
+  margin-right: 2.5rem;
+}
+body .footer .play {
+  display: flex;
+  flex-direction: column;
+  margin-left: 4rem;
+}
+body .footer button {
+  width: 73px;
+  background-color: antiquewhite;
+  border: 1px solid white;
+  cursor: pointer;
+  margin-bottom: 1rem;
+}
+body .footer button:active {
+  border: 1px solid rebeccapurple;
 }
 
 /*# sourceMappingURL=main.css.map */
