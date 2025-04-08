@@ -7,10 +7,6 @@ body main {
   width: 450px;
   margin: auto;
 }
-body main .window {
-  width: 300px;
-  height: 400px;
-}
 body main .main {
   display: flex;
   flex-direction: row;
@@ -21,6 +17,9 @@ body main .main .info {
 }
 body main .main .info .header .lose {
   display: none;
+}
+body main .main .info .header #life, body main .main .info .header #score {
+  color: rgb(18, 230, 18);
 }
 body main .main .info p {
   margin: 1rem 10px;

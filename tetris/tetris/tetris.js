@@ -152,11 +152,16 @@ function removeEvents() {
     document.removeEventListener("keyup", buttonEvents);
 }
 
-function collision(newX, newY, shape) {
-    for (let y = 0; y < shape.length; ++y) {
-        for (let x = 0; x < shape[y].length; ++x) {
-            if (shape[y][x]) {
-                if (field[newY + y][newX + x]) {
+function collision(x, y, shape) {
+    for (let row = 0; row < shape.length; row++) {
+        for (let col = 0; col < shape[row].length; col++) {
+            if (shape[row][col]) {
+                if (
+                    y + row >= 20 || 
+                    x + col < 0 ||   
+                    x + col >= 10 ||  
+                    field[y + row][x + col]
+                ) {
                     return true;
                 }
             }
@@ -171,27 +176,34 @@ function speedUp() {
 }
 
 function rotationMove() {
-    if (currentShape.y < (20 - currentShape.shape.length)) {
-        let rotated = [];
-        let shapeY = currentShape.shape.length;
-        let shapeX = currentShape.shape[0].length;
+    if (currentShape.y >= 20 - currentShape.shape.length) {
+        return; 
+    }
 
-        for (let x = 0; x < shapeX; ++x) {
-            let arr = [];
-            for (let y = shapeY - 1; y >= 0; --y) {
-                arr.push(currentShape.shape[y][x]);
-            }
-            rotated.push(arr);
+    let rotated = [];
+    let rows = currentShape.shape.length;
+    let cols = currentShape.shape[0].length;
+
+    for (let x = 0; x < cols; x++) {
+        let newRow = [];
+        for (let y = rows - 1; y >= 0; y--) {
+            newRow.push(currentShape.shape[y][x]);
         }
+        rotated.push(newRow);
+    }
 
-        if (!collision(currentShape.x, currentShape.y, rotated))
-            currentShape.shape = rotated;
+    let newX = currentShape.x;
 
-        if ((currentShape.x + (currentShape.shape[0].length - 1)) > 9) {
-            currentShape.x--;
-        }
-           
-    }   
+    if (newX + rotated[0].length > 10) { 
+        newX = 10 - rotated[0].length; 
+    }
+
+    if (collision(newX, currentShape.y, rotated)) {
+        return;
+    }
+
+    currentShape.shape = rotated;
+    currentShape.x = newX; 
 }
 
 function leftMove() {
