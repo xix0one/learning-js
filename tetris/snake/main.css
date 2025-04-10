@@ -1,0 +1,70 @@
+body {
+  margin: 0;
+  background: black;
+  color: white;
+}
+body main {
+  width: 450px;
+  margin: auto;
+}
+body main .main {
+  display: flex;
+  flex-direction: row;
+}
+body main .main .info {
+  border-left: 2px solid white;
+  width: 150px;
+}
+body main .main .info .header .lose {
+  display: none;
+}
+body main .main .info .header #score {
+  color: rgb(18, 230, 18);
+}
+body main .main .info p {
+  margin: 1rem 10px;
+}
+body main .main .info p#lose {
+  color: red;
+}
+body .line {
+  background-color: white;
+  width: 100%;
+  height: 2px;
+}
+body .footer {
+  margin: auto;
+  width: 400px;
+  margin-top: 1rem;
+  display: flex;
+}
+body .footer .control {
+  margin-left: 2rem;
+  margin-right: 2.5rem;
+  display: grid;
+  gap: 10px;
+}
+body .footer .control .up {
+  grid-column: 2;
+  grid-row: 1;
+}
+body .footer .control .left, body .footer .control .right, body .footer .control .down {
+  grid-row: 2;
+}
+body .footer .play {
+  display: flex;
+  flex-direction: column;
+  margin-left: 1rem;
+}
+body .footer button {
+  width: 73px;
+  background-color: antiquewhite;
+  border: 1px solid white;
+  cursor: pointer;
+  margin-bottom: 1rem;
+}
+body .footer button:active {
+  border: 1px solid rebeccapurple;
+}
+
+/*# sourceMappingURL=main.css.map */

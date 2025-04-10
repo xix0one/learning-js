@@ -1,0 +1,85 @@
+body {
+    margin: 0;
+    background: black;
+    color: white;
+
+    main {
+        width: 450px;
+        margin: auto;
+
+        .main {
+            display: flex;
+            flex-direction: row;
+
+            .info {
+                border-left: 2px solid white;
+                width: 150px;
+
+                .header {
+                    .lose {
+                        display: none;
+                    }
+                    #score {
+                        color: rgb(18, 230, 18);
+                    }
+                }
+
+                p {
+                    margin: 1rem 10px;
+
+                    &#lose {
+                        color: red;
+                    }
+                }
+            }
+        }
+    }
+
+    .line {
+        background-color: white;
+        width: 100%;
+        height: 2px;
+    }
+
+    .footer {
+        margin: auto;
+        width: 400px;
+        margin-top: 1rem;
+        display: flex;
+
+        .control {
+            margin-left: 2rem;
+            margin-right: 2.5rem;
+
+            display: grid;
+            gap: 10px;
+            .up {
+                grid-column: 2;
+                grid-row: 1;
+            }
+
+            .left, .right, .down {
+                grid-row: 2;
+            }
+        }
+
+        .play {
+            display: flex;
+            flex-direction: column;
+            margin-left: 1rem;
+        }
+
+        button {
+            width: 73px;
+            background-color: antiquewhite;
+            border: 1px solid white;
+            cursor: pointer;
+
+            margin-bottom: 1rem;
+
+            &:active {
+                border: 1px solid rebeccapurple;
+            }
+        }
+    }
+}
